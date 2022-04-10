@@ -18,10 +18,22 @@ const Page = styled("div")`
   flex: none;
 
   display: flex;
-  align-items: flex-end;
+  // align-items: flex-end;
 `;
 
-const Card = styled("div")``;
+const Card = styled("div")`
+  font-family: Ubuntu;
+  margin-top: 60vh;
+  h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 0 0 .8rem 0;
+  }
+  p {
+    margin: 0;
+  }
+  padding: 10%;
+`;
 
 const Narrative = () => {
   return (
@@ -29,7 +41,7 @@ const Narrative = () => {
       {NARRATIVE.map((card) => (
         <Page>
           <Card>
-            <h1>{card.title}</h1>
+            {card.title && <h1>{card.title}</h1>}
             <p>{card.body}</p>
           </Card>
         </Page>

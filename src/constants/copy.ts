@@ -8,7 +8,7 @@ export const NARRATIVE = [
     body: `Almost a fifth of that money went into paying pensions and debt. The remainder went into operating budgets. (elaborate)`
   },
   {
-    title:`Where does that money go?`,
+    //title:`Where does that money go?`,
     body:`This money is used for all aspects of a student's education. A significant portion of the budget is allocated toward building maintenance, pupil transportation, and food. (highlight, elaborate)`
   },
   {
@@ -20,19 +20,19 @@ export const NARRATIVE = [
     body:`A significant factor in how much funding a school gets from REPLACE is Fair Student Funding allocations. These are calculated based on the needs of each individual student in the public shcool system. These funds are unrestricted and the Principal can decide how this money is used.`
   },
   {
-    title:`Fair Student Funding`,
+    //title:`Fair Student Funding`,
     body:`Schools do not always get 100% of their FSF allocation; however, for FY22, there is adequate funding to raise the FSF minimum funding percentage to 100%! (elaborate)`
   },
   {
-    title:`Fair Student Funding`,
+    // title:`Fair Student Funding`,
     body:`So how is a school's FSF allocation calculated? (walk through the math, update viz)`
   },
   {
-    title:`Fair Student Funding`,
+    // title:`Fair Student Funding`,
     body:`This money follows students, so each school receives funding based on the needs of each of their enrolled students. Here are two examples of two different students, and how much money their school would receive based on the appropriate FSF calculations.`
   },
   {
-    title:`Fair Student Funding`,
+    // title:`Fair Student Funding`,
     body:`Try calculating it yourself!`
   },
   {
