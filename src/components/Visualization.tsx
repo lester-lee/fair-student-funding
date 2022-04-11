@@ -43,9 +43,9 @@ const Visualization = () => {
   // List of StyledComponents
   // Couldn't figure out types so using any[] instead
   const squares: any[] = [];
-  data.forEach(info => {
-    for (let i = 0; i < info.count; i++) {
-      squares.push(<Square color={info.color}></Square>)
+  data.forEach((info,i) => {
+    for (let j = 0; j < info.count; j++) {
+      squares.push(<Square color={info.color} key={""+i+j}></Square>)
     }
   });
 

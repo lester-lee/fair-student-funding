@@ -37,19 +37,24 @@ const Card = styled("div")`
   padding: 10%;
 `;
 
-const Narrative = () => {
+type Props = {
+  onScroll: () => void
+};
+
+const Narrative = React.forwardRef<HTMLElement, Props>(({onScroll}:Props, ref) => {
+
   return (
-    <Article>
-      {NARRATIVE.map((card) => (
-        <Page>
+    <article onScroll={onScroll} ref={ref}>
+      {NARRATIVE.map((page, i) => (
+        <Page key={i}>
           <Card>
-            {card.title && <h1>{card.title}</h1>}
-            <p>{card.body}</p>
+            {page.title && <h1>{page.title}</h1>}
+            <p>{page.body}</p>
           </Card>
         </Page>
       ))}
-    </Article>
+    </article>
   );
-};
+});
 
 export default Narrative;
