@@ -2,9 +2,9 @@ import * as React from "react";
 import { css, Global } from "@emotion/react";
 
 // Components
-import ImageHeader from "../components/Header/ImageHeader";
-import Narrative from "../components/Narrative/Narrative";
-import Visualization from "../components/Visualization/Visualization";
+import ImageHeader from "../components/ImageHeader";
+import Narrative from "../components/Narrative";
+import Visualization from "../components/Visualization";
 
 const IndexPage = () => {
   const styles = css`

@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "@emotion/styled";
 
-import { NARRATIVE } from "../../constants/copy";
+import { NARRATIVE } from "../constants/copy";
 
 const Article = styled("article")`
   display: flex;
@@ -12,16 +12,18 @@ const Article = styled("article")`
   scroll-snap-type: y mandatory;
 `;
 
-const Page = styled("div")`
+const Page = styled("section")`
   height: 100vh;
   scroll-snap-align: start;
   flex: none;
 
   display: flex;
+  justify-content: center;
   // align-items: flex-end;
 `;
 
 const Card = styled("div")`
+  background: #fff;
   font-family: Ubuntu;
   margin-top: 60vh;
   h1 {
