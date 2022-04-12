@@ -1,5 +1,7 @@
 import * as React from "react";
-import styled, { StyledComponent } from "@emotion/styled";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 const Viz = styled("div")`
   width: 100vw;
@@ -12,7 +14,7 @@ const Viz = styled("div")`
   z-index: -1;
 `;
 
-const Container = styled("figure")`
+const Container = css`
   width: 80vw;
   max-width: 300px;
   height: 80vw;
@@ -26,9 +28,10 @@ const Container = styled("figure")`
   gap: 2px;
 `;
 
-const Square = styled("div")`
+const Percent = styled("div")`
   width: 100%;
   height: 100%;
+  border-radius: 50%;
   background-color: ${props => props.color};
   margin: 2px;
 `;
@@ -37,8 +40,9 @@ const Square = styled("div")`
 // Progression of Data
 //====================
 const pages = [
-  [{color: "#bbb", count: 100}],
-  [{color: "red", count:20}, {color: "#bbb", count: 80}],
+  [{ color: "#bbb", count: 100 }],
+  [{ color: "#bbb", count: 80 }, { color: "red", count: 20 }],
+  [{ color: "#bbb", count: 30 }, { color: "#ccc", count: 30 }, { color: "#777", count: 20 }],
 ]
 
 
@@ -50,20 +54,22 @@ const Visualization = ({ page }: Props) => {
 
   const currentPage = pages[page];
 
-  // List of StyledComponents
-  // Couldn't figure out types so using any[] instead
-  const squares: any[] = [];
+  const points: { color: string }[] = [];
   currentPage?.forEach((info, i) => {
     for (let j = 0; j < info.count; j++) {
-      squares.push(<Square color={info.color} key={"" + i + j}></Square>)
+      points.push({ color: info.color });
     }
   });
 
   return <Viz>
     {page}
-    <Container>
-      {squares}
-    </Container>
+    <TransitionGroup timeout={250} css={css`${Container};`} component="figure">
+      {points.map((point, i) => (
+        <CSSTransition timeout={250}>
+          <Percent color={point.color} />
+        </CSSTransition>
+      ))}
+    </TransitionGroup>
   </Viz>;
 };
 
