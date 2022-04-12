@@ -19,7 +19,7 @@ const Container = styled("figure")`
   max-height: 300px;
 
   margin: 5vh auto;
-  margin-top: 20vh;
+  margin-top: 10vh;
 
   display: grid;
   grid-template: repeat(10,1fr) / repeat(10,1fr);
@@ -33,27 +33,36 @@ const Square = styled("div")`
   margin: 2px;
 `;
 
-const Visualization = () => {
-  const data = [
-    { color: "#888", count: 80 },
-    { color: "aqua", count: 8 },
-    { color: "#aaa", count: 10 }
-  ];
+//====================
+// Progression of Data
+//====================
+const pages = [
+  [{color: "#bbb", count: 100}],
+  [{color: "red", count:20}, {color: "#bbb", count: 80}],
+]
+
+
+type Props = {
+  page: number,
+}
+
+const Visualization = ({ page }: Props) => {
+
+  const currentPage = pages[page];
 
   // List of StyledComponents
   // Couldn't figure out types so using any[] instead
   const squares: any[] = [];
-  data.forEach((info,i) => {
+  currentPage?.forEach((info, i) => {
     for (let j = 0; j < info.count; j++) {
-      squares.push(<Square color={info.color} key={""+i+j}></Square>)
+      squares.push(<Square color={info.color} key={"" + i + j}></Square>)
     }
   });
 
   return <Viz>
+    {page}
     <Container>
-      {
-        squares
-      }
+      {squares}
     </Container>
   </Viz>;
 };

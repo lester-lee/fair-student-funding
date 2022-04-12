@@ -41,10 +41,9 @@ type Props = {
   onScroll: () => void
 };
 
-const Narrative = React.forwardRef<HTMLElement, Props>(({onScroll}:Props, ref) => {
-
+const Narrative = ({ onScroll }: Props) => {
   return (
-    <article onScroll={onScroll} ref={ref}>
+    <Article onScroll={onScroll}>
       {NARRATIVE.map((page, i) => (
         <Page key={i}>
           <Card>
@@ -53,8 +52,8 @@ const Narrative = React.forwardRef<HTMLElement, Props>(({onScroll}:Props, ref) =
           </Card>
         </Page>
       ))}
-    </article>
+    </Article>
   );
-});
+};
 
 export default Narrative;

@@ -10,10 +10,19 @@ import Visualization from "../components/Visualization";
 const IndexPage = () => {
 
   const [activePage, setActivePage] = useState(0);
-  const narrative = useRef();
 
+  /**
+   * Calculate the height of a single page
+   * and use to calculate the current page
+   * given the scroll offset
+   */
   function onScroll() {
-    console.log(narrative.current?.offsetTop);
+    const narrative = document.querySelector("article");
+    if (!narrative) return;
+    const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
+    // Offset by 5 for smoother updates
+    const pageIndex = Math.floor((narrative.scrollTop + 5) / pageHeight);
+    setActivePage(pageIndex);
   };
 
   const styles = css`
@@ -25,11 +34,11 @@ const IndexPage = () => {
 
   return (
     <>
-      <Global styles={styles}/>
+      <Global styles={styles} />
       <ImageHeader />
       <main>
-        <Narrative ref={narrative} onScroll={onScroll}/>
-        <Visualization />
+        <Narrative onScroll={onScroll} />
+        <Visualization page={activePage}/>
       </main>
     </>
   );
