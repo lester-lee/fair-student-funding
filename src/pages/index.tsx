@@ -38,7 +38,7 @@ const IndexPage = () => {
       <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />
-        <Visualization page={activePage}/>
+        <Visualization pageIdx={activePage}/>
       </main>
     </>
   );
