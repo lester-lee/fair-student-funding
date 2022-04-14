@@ -1,14 +1,13 @@
-import * as React from "react";
-import { useState, useRef } from "react";
-import { css, Global } from "@emotion/react";
+import * as React from 'react';
+import { useState } from 'react';
+import { css, Global } from '@emotion/react';
 
 // Components
-import ImageHeader from "../components/ImageHeader";
-import Narrative from "../components/Narrative";
-import Visualization from "../components/Visualization";
+import ImageHeader from '../components/ImageHeader';
+import Narrative from '../components/Narrative';
+import Visualization from '../components/Visualization';
 
 const IndexPage = () => {
-
   const [activePage, setActivePage] = useState(0);
 
   /**
@@ -17,13 +16,15 @@ const IndexPage = () => {
    * given the scroll offset
    */
   function onScroll() {
-    const narrative = document.querySelector("article");
+    const narrative = document.querySelector('article');
     if (!narrative) return;
     const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
     // Offset by 5 for smoother updates
-    const pageIndex = Math.floor((narrative.scrollTop + (pageHeight / 2)) / pageHeight);
+    const pageIndex = Math.floor(
+      (narrative.scrollTop + pageHeight / 2) / pageHeight
+    );
     setActivePage(pageIndex);
-  };
+  }
 
   const styles = css`
     :root {
@@ -46,7 +47,7 @@ const IndexPage = () => {
       <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />
-        <Visualization pageIdx={activePage}/>
+        <Visualization pageIdx={activePage} />
       </main>
     </>
   );

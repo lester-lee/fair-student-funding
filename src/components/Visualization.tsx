@@ -63,7 +63,7 @@ const getPageColors = (pageIdx: number) => {
   let i = 0;
   waffles?.forEach(([color, count]) => {
     for (let j = 0; j < count; j++) {
-      colors[99-i++] = color;
+      colors[99 - i++] = color;
     }
   });
 
@@ -86,7 +86,11 @@ const Visualization = ({ pageIdx }: Props) => {
       {pageIdx}
       <WaffleChart>
         {colors.map((color, i) => (
-          <Waffle color={color} key={i} style={{transitionDelay: `${i*30}ms`}}/>
+          <Waffle
+            color={color}
+            key={color+i}
+            style={{ transitionDelay: `${i * 75}ms` }}
+          />
         ))}
       </WaffleChart>
     </Viz>
