@@ -3,65 +3,71 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 const Viz = styled('div')`
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	margin: 0;
-	padding: 0;
-	z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
 `;
 
-const Container = css`
-	width: 80vw;
-	max-width: 300px;
-	height: 80vw;
-	max-height: 300px;
+const WaffleChart = styled('figure')`
+  width: 80vw;
+  max-width: 300px;
+  height: 80vw;
+  max-height: 300px;
 
-	margin: 5vh auto;
-	margin-top: 10vh;
+  margin: 5vh auto;
+  margin-top: 10vh;
 
-	display: grid;
-	grid-template: repeat(10, 1fr) / repeat(10, 1fr);
-	gap: 2px;
+  display: grid;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  gap: 2px;
+
+  border: 5px solid #333;
+  padding: 2px;
 `;
 
-const Percent = styled('div')`
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	background-color: ${(props) => props.color};
-	margin: 2px;
+const Waffle = styled('div')`
+  width: 100%;
+  height: 100%;
+  background-color: ${(props) => props.color};
 `;
 
 //====================
 // Data Progression
 //====================
-const pages = [
-  [{ color: '#bbb', count: 100 }],
+
+// Need better names for these lol
+type Waffle = [color: string, count: number];
+const waffleData: Waffle[][] = [
+  [[`var(--dark-blue)`, 100]],
   [
-    { color: '#bbb', count: 80 },
-    { color: 'red', count: 20 },
+    [`var(--dark-blue)`, 80],
+    [`var(--red)`, 20],
   ],
+  [[`var(--dark-blue)`, 80]],
   [
-    { color: '#bbb', count: 30 },
-    { color: '#ccc', count: 30 },
-    { color: '#777', count: 20 },
+    [`var(--dark-blue)`, 53],
+    [`var(--yellow)`, 21],
+    [`var(--red)`, 6],
   ],
 ];
 
-// Take the active page and return array of points
-const constructPoints = (pageIdx: number) => {
-  const activePage = pages[pageIdx];
-
-  let points: { color: string }[] = [];
-  activePage?.forEach((info, i) => {
-    for (let j = 0; j < info.count; j++) {
-      points.push({ color: info.color });
+// Convert active page waffle data into array of colors
+const getPageColors = (pageIdx: number) => {
+  const waffles = waffleData[pageIdx];
+  const colors = Array(100).fill(`var(--light-gray)`);
+  let i = 0;
+  waffles?.forEach(([color, count]) => {
+    for (let j = 0; j < count; j++) {
+      colors[i++] = color;
     }
   });
-  return points;
+
+  return colors;
 };
 
 //====================
@@ -72,26 +78,19 @@ type Props = {
   pageIdx: number;
 };
 
-/*
-
-    <Container>
-      {points.map((point, i) => (
-        <Transition timeout={duration}>
-          {state => <Percent
-            color={point.color}
-            style={{
-              ...defaultPercentStyle,
-              // ...percentTransitions[String(state)]
-            }} />}
-        </Transition>
-      ))}
-    </Container>
-*/
-
 const Visualization = ({ pageIdx }: Props) => {
-  const points = constructPoints(pageIdx);
+  const colors = getPageColors(pageIdx);
 
-  return <Viz>{pageIdx}</Viz>;
+  return (
+    <Viz>
+      {pageIdx}
+      <WaffleChart>
+        {colors.map((color) => (
+          <Waffle color={color} />
+        ))}
+      </WaffleChart>
+    </Viz>
+  );
 };
 
 export default Visualization;

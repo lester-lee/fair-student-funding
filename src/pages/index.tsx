@@ -21,11 +21,19 @@ const IndexPage = () => {
     if (!narrative) return;
     const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
     // Offset by 5 for smoother updates
-    const pageIndex = Math.floor((narrative.scrollTop + 5) / pageHeight);
+    const pageIndex = Math.floor((narrative.scrollTop + (pageHeight / 2)) / pageHeight);
     setActivePage(pageIndex);
   };
 
   const styles = css`
+    :root {
+      --dark-blue: #264653ff;
+      --green: #2a9d8fff;
+      --yellow: #e9c46aff;
+      --orange: #f4a261ff;
+      --red: #e76f51ff;
+      --light-gray: #eee;
+    }
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     body {
       margin: 0;
