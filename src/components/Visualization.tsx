@@ -34,13 +34,13 @@ const Waffle = styled('div')`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.color};
+  transition: all 500ms;
 `;
 
 //====================
 // Data Progression
 //====================
 
-// Need better names for these lol
 type Waffle = [color: string, count: number];
 const waffleData: Waffle[][] = [
   [[`var(--dark-blue)`, 100]],
@@ -51,8 +51,8 @@ const waffleData: Waffle[][] = [
   [[`var(--dark-blue)`, 80]],
   [
     [`var(--dark-blue)`, 53],
-    [`var(--yellow)`, 21],
     [`var(--red)`, 6],
+    [`var(--yellow)`, 21],
   ],
 ];
 
@@ -63,7 +63,7 @@ const getPageColors = (pageIdx: number) => {
   let i = 0;
   waffles?.forEach(([color, count]) => {
     for (let j = 0; j < count; j++) {
-      colors[i++] = color;
+      colors[99-i++] = color;
     }
   });
 
@@ -85,8 +85,8 @@ const Visualization = ({ pageIdx }: Props) => {
     <Viz>
       {pageIdx}
       <WaffleChart>
-        {colors.map((color) => (
-          <Waffle color={color} />
+        {colors.map((color, i) => (
+          <Waffle color={color} key={i} style={{transitionDelay: `${i*30}ms`}}/>
         ))}
       </WaffleChart>
     </Viz>
