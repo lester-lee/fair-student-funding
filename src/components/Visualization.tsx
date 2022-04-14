@@ -63,11 +63,24 @@ const getPageColors = (pageIdx: number) => {
   let i = 0;
   waffles?.forEach(([color, count]) => {
     for (let j = 0; j < count; j++) {
-      colors[99 - i++] = color;
+      colors[i++] = color;
     }
   });
 
   return colors;
+};
+
+// Given two arrays of colors where order matters,
+// return [same colors, changed colors]
+const getDifferenceInColors = (previousColors: string[], colors: string[]) => {
+  const sameColors: string[] = [];
+
+  let i = 0;
+  while (i < previousColors.length && previousColors[i] == colors[i]) {
+    sameColors.push(previousColors[i++]);
+  }
+
+  return [sameColors, colors.splice(i)];
 };
 
 //====================
@@ -75,20 +88,29 @@ const getPageColors = (pageIdx: number) => {
 //====================
 
 type Props = {
-  pageIdx: number;
+  activePage: number;
+  previousPage: number;
 };
 
-const Visualization = ({ pageIdx }: Props) => {
-  const colors = getPageColors(pageIdx);
+const Visualization = ({ activePage, previousPage }: Props) => {
+  const previousColors = getPageColors(previousPage);
+  const colors = getPageColors(activePage);
+
+  const [sameColors, newColors] = getDifferenceInColors(previousColors, colors);
+  console.log(newColors);
+  
 
   return (
     <Viz>
-      {pageIdx}
+      {activePage}
       <WaffleChart>
-        {colors.map((color, i) => (
+        {sameColors.map((color, i) => (
+          <Waffle color={color} key={color + i} />
+        ))}
+        {newColors.map((color, i) => (
           <Waffle
             color={color}
-            key={color+i}
+            key={100+color + i}
             style={{ transitionDelay: `${i * 75}ms` }}
           />
         ))}

@@ -8,6 +8,7 @@ import Narrative from '../components/Narrative';
 import Visualization from '../components/Visualization';
 
 const IndexPage = () => {
+  const [previousPage, setPreviousPage] = useState(0);
   const [activePage, setActivePage] = useState(0);
 
   /**
@@ -23,10 +24,12 @@ const IndexPage = () => {
     const pageIndex = Math.floor(
       (narrative.scrollTop + pageHeight / 2) / pageHeight
     );
+    setPreviousPage(activePage);
     setActivePage(pageIndex);
   }
 
   const styles = css`
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     :root {
       --dark-blue: #264653ff;
       --green: #2a9d8fff;
@@ -35,7 +38,6 @@ const IndexPage = () => {
       --red: #e76f51ff;
       --light-gray: #eee;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     body {
       margin: 0;
     }
@@ -47,7 +49,7 @@ const IndexPage = () => {
       <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />
-        <Visualization pageIdx={activePage} />
+        <Visualization activePage={activePage} previousPage={previousPage}/>
       </main>
     </>
   );
