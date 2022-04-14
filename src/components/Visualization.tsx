@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 const Viz = styled('div')`
   width: 100vw;
@@ -13,7 +14,7 @@ const Viz = styled('div')`
   z-index: -1;
 `;
 
-const WaffleChart = styled('figure')`
+const WaffleChart = css`
   width: 80vw;
   max-width: 300px;
   height: 80vw;
@@ -98,23 +99,28 @@ const Visualization = ({ activePage, previousPage }: Props) => {
 
   const [sameColors, newColors] = getDifferenceInColors(previousColors, colors);
   console.log(newColors);
-  
 
   return (
     <Viz>
       {activePage}
-      <WaffleChart>
+      <TransitionGroup
+        css={css`
+          ${WaffleChart};
+        `}
+        component='figure'
+        exit={false}
+      >
         {sameColors.map((color, i) => (
           <Waffle color={color} key={color + i} />
         ))}
         {newColors.map((color, i) => (
           <Waffle
             color={color}
-            key={100+color + i}
-            style={{ transitionDelay: `${i * 75}ms` }}
+            key={100 + color + i}
+            style={{ animationDelay: `${i * 75}ms` }}
           />
         ))}
-      </WaffleChart>
+      </TransitionGroup>
     </Viz>
   );
 };

@@ -24,8 +24,13 @@ const IndexPage = () => {
     const pageIndex = Math.floor(
       (narrative.scrollTop + pageHeight / 2) / pageHeight
     );
-    setPreviousPage(activePage);
-    setActivePage(pageIndex);
+
+    if (pageIndex != activePage) {
+      setPreviousPage(activePage);
+      setActivePage(pageIndex);
+      console.log(previousPage, activePage);
+      
+    }
   }
 
   const styles = css`
@@ -49,7 +54,7 @@ const IndexPage = () => {
       <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />
-        <Visualization activePage={activePage} previousPage={previousPage}/>
+        <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
     </>
   );
