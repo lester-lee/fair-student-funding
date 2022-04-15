@@ -29,7 +29,7 @@ const Card = styled("div")`
   h1 {
     text-transform: capitalize;
     text-align: center;
-    margin: 0 0 .8rem 0;
+    margin: 0 0 0.8rem 0;
   }
   p {
     margin: 0;
@@ -38,7 +38,7 @@ const Card = styled("div")`
 `;
 
 type Props = {
-  onScroll: () => void
+  onScroll: () => void;
 };
 
 const Narrative = ({ onScroll }: Props) => {

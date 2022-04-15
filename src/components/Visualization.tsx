@@ -1,9 +1,7 @@
-import * as React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import * as React from "react";
+import styled from "@emotion/styled";
 
-const Viz = styled('div')`
+const Viz = styled("div")`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -14,7 +12,7 @@ const Viz = styled('div')`
   z-index: -1;
 `;
 
-const WaffleChart = css`
+const WaffleChart = styled("figure")`
   width: 80vw;
   max-width: 300px;
   height: 80vw;
@@ -31,7 +29,7 @@ const WaffleChart = css`
   padding: 2px;
 `;
 
-const Waffle = styled('div')`
+const Waffle = styled("div")`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.color};
@@ -71,17 +69,13 @@ const getPageColors = (pageIdx: number) => {
   return colors;
 };
 
-// Given two arrays of colors where order matters,
-// return [same colors, changed colors]
-const getDifferenceInColors = (previousColors: string[], colors: string[]) => {
-  const sameColors: string[] = [];
-
+// Return the first index where the color is different
+const getDifferenceIndex = (previousColors: string[], colors: string[]) => {
   let i = 0;
   while (i < previousColors.length && previousColors[i] == colors[i]) {
-    sameColors.push(previousColors[i++]);
+    i++;
   }
-
-  return [sameColors, colors.splice(i)];
+  return i;
 };
 
 //====================
@@ -94,33 +88,25 @@ type Props = {
 };
 
 const Visualization = ({ activePage, previousPage }: Props) => {
+  // Find where the colors are changing
   const previousColors = getPageColors(previousPage);
   const colors = getPageColors(activePage);
-
-  const [sameColors, newColors] = getDifferenceInColors(previousColors, colors);
-  console.log(newColors);
+  const differentIdx = getDifferenceIndex(previousColors, colors);
 
   return (
     <Viz>
       {activePage}
-      <TransitionGroup
-        css={css`
-          ${WaffleChart};
-        `}
-        component='figure'
-        exit={false}
-      >
-        {sameColors.map((color, i) => (
-          <Waffle color={color} key={color + i} />
-        ))}
-        {newColors.map((color, i) => (
+      <WaffleChart>
+        {colors.map((color, i) => (
           <Waffle
             color={color}
-            key={100 + color + i}
-            style={{ animationDelay: `${i * 75}ms` }}
+            key={i}
+            style={{
+              transitionDelay: `${Math.max(0, (i - differentIdx) * 10)}ms`,
+            }}
           />
         ))}
-      </TransitionGroup>
+      </WaffleChart>
     </Viz>
   );
 };
