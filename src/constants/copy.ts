@@ -1,15 +1,23 @@
 export const NARRATIVE = [
   {
     title: `How are schools funded?`,
-    body: `Public schools receive city, state, and federal funding. For the school year of 2021-2022 (SY21-22), the total amount of money received was $38 billion.`
+    body: `Public schools receive city, state, and federal funding. For the school year of 2021-2022 (SY22), the total amount of money received was $38 billion.`
+  },
+  {
+    title:`How are schools funded?`,
+    body:`Of that $38 billion, the city provides 51%, the state provides 34%, and the federal government and other sources provide the remaining 15%.`
   },
   {
     title: `Where does that money go?`,
-    body: `Almost a fifth of that money went into paying pensions and debt. The remainder went into operating budgets. (elaborate)`
+    body: `Not all of that money will go to the operating budget for SY22. Roughly 20% of the money recieved is used for other expenses, such as paying off debts and contributing to pensions. For example, these expenses accounted for $6.5 billion of the $31.5 billion spent in SY18.`,
   },
   {
-    //title:`Where does that money go?`,
-    body:`This money is used for all aspects of a student's education. A significant portion of the budget is allocated toward building maintenance, pupil transportation, and food. (highlight, elaborate)`
+    title:`Where does that money go?`,
+    body:`While the majority of the remaining 80% goes to school budgets, there are also support and non-instructional costs, such as food, building maintenance, and transportation.`
+  },
+  {
+    title:`Where does that money go?`,
+    body:`A significant portion is allocated to classroom instruction, of which a majority is used to pay for teachers and educational paraprofessionals.`
   },
   {
     title:`District school budgets`,

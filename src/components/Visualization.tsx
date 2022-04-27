@@ -1,7 +1,7 @@
-import * as React from "react";
-import styled from "@emotion/styled";
+import * as React from 'react';
+import styled from '@emotion/styled';
 
-const Viz = styled("div")`
+const Viz = styled('div')`
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -9,10 +9,9 @@ const Viz = styled("div")`
   left: 0;
   margin: 0;
   padding: 0;
-  z-index: -1;
 `;
 
-const WaffleChart = styled("figure")`
+const WaffleChart = styled('figure')`
   width: 80vw;
   max-width: 300px;
   height: 80vw;
@@ -29,7 +28,7 @@ const WaffleChart = styled("figure")`
   padding: 2px;
 `;
 
-const Waffle = styled("div")`
+const Waffle = styled('div')`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.color};
@@ -40,39 +39,38 @@ const Waffle = styled("div")`
 // Data Progression
 //====================
 
-type Waffle = [color: string, count: number];
+type Waffle = [category: string, color: string, count: number];
 const waffleData: Waffle[][] = [
-  [[`var(--dark-blue)`, 100]],
+  [['all', `var(--dark-blue)`, 100]],
   [
-    [`var(--dark-blue)`, 80],
-    [`var(--red)`, 20],
+    ['city', `var(--dark-blue)`, 51],
+    ['state', `var(--dark-blue)`, 34],
+    ['federal', `var(--dark-blue)`, 15],
   ],
-  [[`var(--dark-blue)`, 80]],
   [
-    [`var(--dark-blue)`, 53],
-    [`var(--red)`, 6],
-    [`var(--yellow)`, 21],
+    ['operating-budget', `var(--dark-blue)`, 80],
+    ['debt', `var(--red)`, 20],
   ],
 ];
 
 // Convert active page waffle data into array of colors
-const getPageColors = (pageIdx: number) => {
-  const waffles = waffleData[pageIdx];
-  const colors = Array(100).fill(`var(--light-gray)`);
+const getWaffles = (pageIdx: number) => {
+  const raw_waffles = waffleData[pageIdx];
+  const waffles: Waffle[] = Array(100).fill(['', `var(--light-gray)`, 0]);
   let i = 0;
-  waffles?.forEach(([color, count]) => {
-    for (let j = 0; j < count; j++) {
-      colors[i++] = color;
+  raw_waffles?.forEach((waffle: Waffle) => {
+    for (let j = 0; j < waffle[2]; j++) {
+      waffles[99 - i++] = waffle;
     }
   });
 
-  return colors;
+  return waffles;
 };
 
 // Return the first index where the color is different
-const getDifferenceIndex = (previousColors: string[], colors: string[]) => {
+const getIndexOfFirstDifference = (prevWaffles: Waffle[], waffles: Waffle[]) => {
   let i = 0;
-  while (i < previousColors.length && previousColors[i] == colors[i]) {
+  while (i < prevWaffles.length && prevWaffles[i][1] == waffles[i][1]) {
     i++;
   }
   return i;
@@ -89,16 +87,19 @@ type Props = {
 
 const Visualization = ({ activePage, previousPage }: Props) => {
   // Find where the colors are changing
-  const previousColors = getPageColors(previousPage);
-  const colors = getPageColors(activePage);
-  const differentIdx = getDifferenceIndex(previousColors, colors);
+  const prevWaffles = getWaffles(previousPage);
+  const waffles = getWaffles(activePage);
+  const differentIdx = getIndexOfFirstDifference(prevWaffles, waffles);
+  console.log(differentIdx);
+  
 
   return (
     <Viz>
       {activePage}
       <WaffleChart>
-        {colors.map((color, i) => (
+        {waffles.map(([category, color], i) => (
           <Waffle
+            className={category}
             color={color}
             key={i}
             style={{
