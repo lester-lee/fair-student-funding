@@ -9,6 +9,7 @@ const Viz = styled('div')`
   left: 0;
   margin: 0;
   padding: 0;
+  z-index: -1;
 `;
 
 const WaffleChart = styled('figure')`
@@ -51,6 +52,23 @@ const waffleData: Waffle[][] = [
     ['operating-budget', `var(--dark-blue)`, 80],
     ['debt', `var(--red)`, 20],
   ],
+  [
+    ['teachers', 'var(--dark-blue)', 40],
+    ['administration', 'var(--dark-blue)', 8],
+    ['transportation', 'var(--dark-blue)', 4],
+    ['food', 'var(--dark-blue)', 3],
+    ['building', 'var(--dark-blue)', 2],
+    ['operating-budget', 'var(--dark-blue)', 23],
+  ],
+  [['district', 'var(--dark-blue)', 50]],
+  [['district', 'var(--dark-blue)', 50]],
+  [
+    ['fsf', 'var(--orange)', 26],
+    ['district', 'var(--dark-blue)', 24],
+  ],
+  [
+    ['fsf', 'var(--orange)', 26],
+  ],
 ];
 
 // Convert active page waffle data into array of colors
@@ -68,7 +86,10 @@ const getWaffles = (pageIdx: number) => {
 };
 
 // Return the first index where the color is different
-const getIndexOfFirstDifference = (prevWaffles: Waffle[], waffles: Waffle[]) => {
+const getIndexOfFirstDifference = (
+  prevWaffles: Waffle[],
+  waffles: Waffle[]
+) => {
   let i = 0;
   while (i < prevWaffles.length && prevWaffles[i][1] == waffles[i][1]) {
     i++;
@@ -91,7 +112,6 @@ const Visualization = ({ activePage, previousPage }: Props) => {
   const waffles = getWaffles(activePage);
   const differentIdx = getIndexOfFirstDifference(prevWaffles, waffles);
   console.log(differentIdx);
-  
 
   return (
     <Viz>
