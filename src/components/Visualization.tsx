@@ -66,20 +66,17 @@ const waffleData: Waffle[][] = [
     ['fsf', 'var(--orange)', 26],
     ['district', 'var(--dark-blue)', 24],
   ],
-  [
-    ['fsf', 'var(--orange)', 26],
-  ],
-  [
-    ['fsf', 'var(--orange)', 26],
-  ],
+  [['fsf', 'var(--orange)', 26]],
+  [['fsf', 'var(--orange)', 26]],
 ];
 
 // Convert active page waffle data into array of colors
 const getWaffles = (pageIdx: number) => {
-  const raw_waffles = waffleData[pageIdx];
+  if (pageIdx >= waffleData.length) return [];
+  const rawWaffles = waffleData[pageIdx];
   const waffles: Waffle[] = Array(100).fill(['', `var(--light-gray)`, 0]);
   let i = 0;
-  raw_waffles?.forEach((waffle: Waffle) => {
+  rawWaffles?.forEach((waffle: Waffle) => {
     for (let j = 0; j < waffle[2]; j++) {
       waffles[99 - i++] = waffle;
     }
@@ -94,7 +91,7 @@ const getIndexOfFirstDifference = (
   waffles: Waffle[]
 ) => {
   let i = 0;
-  while (i < prevWaffles.length && prevWaffles[i][1] == waffles[i][1]) {
+  while (i < prevWaffles.length &&  i < waffles.length && prevWaffles[i][1] == waffles[i][1]) {
     i++;
   }
   return i;
@@ -125,7 +122,7 @@ const Visualization = ({ activePage, previousPage }: Props) => {
             color={color}
             key={i}
             style={{
-              transitionDelay: `${Math.max(0, (i - differentIdx) * 10)}ms`,
+              transitionDelay: `${Math.max(0, (i - differentIdx) * 20)}ms`,
             }}
           />
         ))}
