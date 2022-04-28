@@ -5,7 +5,7 @@ export const NARRATIVE = [
   },
   {
     //title:`How are schools funded?`,
-    body:`Of that $38 billion, the city provides 51%, the state provides 34%, and the federal government and other sources provide the remaining 15%.`
+    body:`Of that $38 billion, the <span class="city">city</span> provides 51%, the state provides 34%, and the federal government and other sources provide the remaining 15%.`
   },
   {
     title: `Where does that money go?`,
@@ -13,7 +13,7 @@ export const NARRATIVE = [
   },
   {
     //title:`Where does that money go?`,
-    body:`The remaining 80% is further broken down into separate categories. About half of the operating budget is used to pay teachers, and the rest is spent on services like administration, food, transportation, and building maintenance.`
+    body:`The remaining 80% is used to pay for all aspects of a student's education. About half of the operating budget is used to pay teachers, and the rest is spent on services like administration, food, transportation, and building maintenance.`
   },
   {
     title:`District school budgets`,
@@ -25,15 +25,15 @@ export const NARRATIVE = [
   },
   {
     title:`Fair Student Funding`,
-    body:`One significant factor in the funding a school receives is Fair Student Funding (FSF), which accounts for over half of the money district schools receive. These numbers are calculated based on the number of students enrolled and the needs of each individual student at each school.`
+    body:`One significant factor is Fair Student Funding (FSF), which accounts for over half of the money district schools receive. A school's FSF allocation is calculated based on the number of students enrolled and the needs of each individual student.`
   },
   {
     //title:`Fair student funding`,
-    body:`These funds are unrestricted and the Principal can decide how this money is used. In SY22, FSF was the source of funding for $10 billion out of the $19 billion allocated to district schools.`
+    body:`These funds are unrestricted, and the principal can decide how this money is used. It might be spent hiring more teachers or purchasing art supplies. In SY22, FSF was the source of funding for $10 billion out of the $19 billion allocated to district schools.`
   },
   {
     //title:`Fair Student Funding`,
-    body:`In an ideal world, schools would receive all of the money that was allocated to them. That does not always happen. In fact, SY22 is the FIRST YEAR that there was adequate funding to raise the minimum funding percentage to 100%. This was not the case for the 15 years since it was introduced in 2007.`
+    body: 'In an ideal world, schools would receive all of the money that was allocated to them -- but that does not always happen. In fact, SY22 was the <i>first year</i> since FSF was introduced in 2007 that there was enough funding to raise the minimum funding percentage to 100%.'
   },
   {
     // title:`Fair Student Funding`,

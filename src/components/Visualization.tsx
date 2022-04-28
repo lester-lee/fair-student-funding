@@ -69,6 +69,9 @@ const waffleData: Waffle[][] = [
   [
     ['fsf', 'var(--orange)', 26],
   ],
+  [
+    ['fsf', 'var(--orange)', 26],
+  ],
 ];
 
 // Convert active page waffle data into array of colors
@@ -111,7 +114,6 @@ const Visualization = ({ activePage, previousPage }: Props) => {
   const prevWaffles = getWaffles(previousPage);
   const waffles = getWaffles(activePage);
   const differentIdx = getIndexOfFirstDifference(prevWaffles, waffles);
-  console.log(differentIdx);
 
   return (
     <Viz>

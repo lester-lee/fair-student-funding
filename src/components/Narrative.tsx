@@ -2,6 +2,7 @@ import * as React from "react";
 import styled from "@emotion/styled";
 
 import { NARRATIVE } from "../constants/copy";
+import parse from "html-react-parser";
 
 const Article = styled("article")`
   display: flex;
@@ -50,7 +51,7 @@ const Narrative = ({ onScroll }: Props) => {
         <Page key={i}>
           <Card>
             {page.title && <h1>{page.title}</h1>}
-            <p>{page.body}</p>
+            <p>{parse(page.body)}</p>
           </Card>
         </Page>
       ))}
