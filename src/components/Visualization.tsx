@@ -9,7 +9,6 @@ const Viz = styled('div')`
   left: 0;
   margin: 0;
   padding: 0;
-  z-index: -1;
 `;
 
 const WaffleChart = styled('figure')`
@@ -27,6 +26,9 @@ const WaffleChart = styled('figure')`
 
   border: 5px solid #333;
   padding: 2px;
+
+  position: static;
+  z-index: 1;
 `;
 
 const Waffle = styled('div')`
@@ -34,6 +36,9 @@ const Waffle = styled('div')`
   height: 100%;
   background-color: ${(props) => props.color};
   transition: all 500ms;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 //====================

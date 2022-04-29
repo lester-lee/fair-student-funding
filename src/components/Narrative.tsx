@@ -11,6 +11,7 @@ const Article = styled("article")`
   width: 100vw;
   height: 100vh;
   scroll-snap-type: y mandatory;
+  position:static;
   z-index: -1;
 `;
 
@@ -37,7 +38,7 @@ const Card = styled("div")`
     margin: 0;
   }
   padding: 10%;
-  z-index: 99;
+  z-index: 2;
 `;
 
 type Props = {

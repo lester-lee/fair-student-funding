@@ -1,11 +1,11 @@
-import * as React from "react";
-import { useState } from "react";
-import { css, Global } from "@emotion/react";
+import * as React from 'react';
+import { useState } from 'react';
+import { css, Global } from '@emotion/react';
 
 // Components
-import ImageHeader from "../components/ImageHeader";
-import Narrative from "../components/Narrative";
-import Visualization from "../components/Visualization";
+import ImageHeader from '../components/ImageHeader';
+import Narrative from '../components/Narrative';
+import Visualization from '../components/Visualization';
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -17,7 +17,7 @@ const IndexPage = () => {
    * given the scroll offset
    */
   function onScroll() {
-    const narrative = document.querySelector("article");
+    const narrative = document.querySelector('article');
     if (!narrative) return;
     const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
     // Offset by 5 for smoother updates
@@ -32,7 +32,7 @@ const IndexPage = () => {
   }
 
   const styles = css`
-    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     :root {
       --dark-blue: #264653ff;
       --green: #2a9d8fff;
@@ -46,9 +46,15 @@ const IndexPage = () => {
     }
   `;
 
+  const keywordStyles = css`
+    .city {
+      background: var(--dark-blue);
+    }
+  `;
+
   return (
     <>
-      <Global styles={styles} />
+      <Global styles={[styles, keywordStyles]} />
       <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />

@@ -5,7 +5,7 @@ export const NARRATIVE = [
   },
   {
     //title:`How are schools funded?`,
-    body: `Of that $38 billion, the <span class="city">city</span> provides 51%, the state provides 34%, and the federal government and other sources provide the remaining 15%.`,
+    body: `Of that $38 billion, <span class="city">the city</span> provides 51%, <span class="state">the state</span> provides 34%, and <span class="federal">the federal government</span> and other sources provide the remaining 15%.`,
   },
   {
     title: `Where does that money go?`,
