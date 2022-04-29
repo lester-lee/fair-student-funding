@@ -4,11 +4,17 @@ import styled from '@emotion/styled';
 const Viz = styled('div')`
   width: 100vw;
   height: 100vh;
+
   position: fixed;
   top: 0;
   left: 0;
+
   margin: 0;
   padding: 0;
+  padding-top: 10vh;
+
+  display: flex;
+  justify-content: center;
 `;
 
 const WaffleChart = styled('figure')`
@@ -17,18 +23,13 @@ const WaffleChart = styled('figure')`
   height: 80vw;
   max-height: 300px;
 
-  margin: 5vh auto;
-  margin-top: 10vh;
-
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
   gap: 2px;
 
   border: 5px solid #333;
   padding: 2px;
-
-  position: static;
-  z-index: 1;
+  margin: 0;
 `;
 
 const Waffle = styled('div')`
@@ -96,7 +97,11 @@ const getIndexOfFirstDifference = (
   waffles: Waffle[]
 ) => {
   let i = 0;
-  while (i < prevWaffles.length &&  i < waffles.length && prevWaffles[i][1] == waffles[i][1]) {
+  while (
+    i < prevWaffles.length &&
+    i < waffles.length &&
+    prevWaffles[i][1] == waffles[i][1]
+  ) {
     i++;
   }
   return i;
@@ -119,7 +124,6 @@ const Visualization = ({ activePage, previousPage }: Props) => {
 
   return (
     <Viz>
-      {activePage}
       <WaffleChart>
         {waffles.map(([category, color], i) => (
           <Waffle
