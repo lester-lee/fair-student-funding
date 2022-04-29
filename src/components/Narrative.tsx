@@ -34,6 +34,10 @@ const Card = styled("div")`
   }
   p {
     margin: 0;
+
+    span {
+      border-bottom: 3px solid red;
+    }
   }
   padding: 10%;
   z-index: 3;

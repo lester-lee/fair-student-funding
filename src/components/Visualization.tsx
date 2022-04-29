@@ -17,18 +17,20 @@ const Viz = styled('div')`
   justify-content: center;
 `;
 
+const boxWidth = 30;
+const gap = 4;
 const WaffleChart = styled('figure')`
   width: 80vw;
-  max-width: 300px;
+  max-width: ${10*boxWidth + 11*gap}px;
   height: 80vw;
-  max-height: 300px;
+  max-height: ${10*boxWidth + 11*gap}px;
 
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
-  gap: 2px;
+  gap: ${gap}px;
 
   border: 5px solid #333;
-  padding: 2px;
+  padding: ${gap}px;
   margin: 0;
 `;
 

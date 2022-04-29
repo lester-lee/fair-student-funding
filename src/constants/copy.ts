@@ -9,11 +9,11 @@ export const NARRATIVE = [
   },
   {
     title: `Where does that money go?`,
-    body: `Not all of that money will go to the operating budget for SY22. Roughly 20% is used for other expenses, such as paying off debts and contributing to pensions. For example, these expenses accounted for $6.5 billion of the $31.5 billion spent in SY18.`,
+    body: `Not all of that money will go to <span class="operating-budget">the operating budget</span> for SY22. Roughly 20% is used for <span class="debt">other expenses</span>, such as paying off debts and contributing to pensions. For example, these expenses accounted for $6.5 billion of the $31.5 billion spent in SY18.`,
   },
   {
     //title:`Where does that money go?`,
-    body: `The remaining 80% is used to pay for all aspects of a student's education. About half of the operating budget is used to pay teachers, and the rest is spent on services like administration, food, transportation, and building maintenance.`,
+    body: `The remaining 80% is used to pay for all aspects of a student's education. About half of <span class="operating-budget">the operating budget</span> is used to pay <span class="teachers">teachers</span>, and the rest is spent on services like <span class="administration">administration</span>, <span class="food">food</span>, <span class="transportation">transportation</span>, and <span class="building">building maintenance</span>.`,
   },
   {
     title: `District school budgets`,
@@ -25,7 +25,7 @@ export const NARRATIVE = [
   },
   {
     title: `Fair Student Funding`,
-    body: `One significant factor is Fair Student Funding (FSF), which accounts for over half of the money district schools receive.`,
+    body: `One significant factor is <span class="fsf">Fair Student Funding (FSF)</span>, which accounts for over half of the money district schools receive.`,
   },
   {
     //title:`Fair student funding`,

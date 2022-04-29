@@ -40,9 +40,15 @@ const IndexPage = () => {
       --orange: #f4a261ff;
       --red: #e76f51ff;
       --light-gray: #ddd;
+
+      --bg: #fff;
+      --base: #;
     }
     body {
       margin: 0;
+    }
+    html {
+      background: var(--bg);
     }
   `;
 
