@@ -21,7 +21,7 @@ export const NARRATIVE = [
   },
   {
     //title:`District school budgets`,
-    body: `These funds are not distributed evenly, however; a number of factors play into how much money an individual school might receive in a given year. The principal of each school is responsible for working with their School Leadership Team to create a plan for how that money should be spent. These plans have to be approved by superintendents.`,
+    body: `These funds are <i>not</i> distributed evenly, however; a number of factors play into how much money an individual school might receive in a given year. The principal of each school is responsible for working with their School Leadership Team to create plans for how that money should be spent, and these plans have to be approved by superintendents.`,
   },
   {
     title: `Fair Student Funding`,
@@ -52,11 +52,27 @@ export const NARRATIVE = [
     body: `A student in grade 4 who was performing below standards and learning English as a new language would have a weight of 1.65. Using the FY22 Per Capita of $4,223, that student's school would be allocated $6967.95 through FSF.`,
   },
   {
-    title:`Thoughts and questions`,
-    body:`It makes sense that students with more needs should receive more resources, but I wonder to what extent those students actually see tangible benefits. The money that a student receives through FSF allocations ultimately goes into a pool of unrestricted funds that can be used at the discretion of the principal. There are so many layers of bureaucracy involved, so many committees and hands that the money must be passed through, that as a person not in the system, I'm finding it near impossible to have a full understanding of everything that goes on.`
+    //title:`fair student funding`,
+    body: `The total FSF allocation for a school would involve performing these calculations for all enrolled students.`,
   },
   {
-    title:`thoughts and questions`,
-    body:`What about the teachers of those students? How can they petitition for more resources? How can students submit feedback about the level of support they've been getting? What's a sustainable and managable way to actually keep track of school? Who is, and who should be, held accountable when student needs aren't met? How often are expenses unaccounted for I don't envy the people who have to come up with the solutions to all of these concerns, but I'm deeply interested in what goes into those decisions.`
+    title: `Bigger picture`,
+    body: `That was a quick overview of how FSF allocations are calculated, but it accounts for only a quarter of the money schools get in a given year, or a third of the operating budget. What decisions go into how the rest of that money is allocated?`,
+  },
+  {
+    title: `Thoughts and questions`,
+    body: `It makes sense that students with more needs should receive more resources, but I wonder to what extent those students actually see tangible benefits. The money that a student receives through FSF allocations ultimately goes into a pool of unrestricted funds that can be used at the discretion of the principal, who might or might not make the right calls.`,
+  },
+  {
+    //title:`thoughts and questions`,
+    body: `There are so many layers of bureaucracy involved, so many committees and hands that the money must be passed through, that as a person not in the system, I'm finding it near impossible to have a full understanding of everything that goes on.`,
+  },
+  {
+    //title: `thoughts and questions`,
+    body: `What about the teachers of those students? How can they petitition for more resources? How can students submit feedback about the level of support they've been getting? Who is, and who should be, held accountable when student needs aren't met? How often are expenses unaccounted for? What slips through the cracks?  What's a sustainable and managable way to actually keep track of all these concerns?`,
+  },
+  {
+    //title:`thoughts and questions`,
+    body: ` I don't envy the people who have to come up with the solutions, but I'm deeply interested in what goes into those decisions.`,
   },
 ];
