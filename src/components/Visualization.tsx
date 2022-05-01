@@ -1,7 +1,7 @@
-import * as React from 'react';
-import styled from '@emotion/styled';
+import * as React from "react";
+import styled from "@emotion/styled";
 
-const Viz = styled('div')`
+const Viz = styled("div")`
   width: 100vw;
   height: 100vh;
 
@@ -19,11 +19,11 @@ const Viz = styled('div')`
 
 const boxWidth = 30;
 const gap = 1;
-const WaffleChart = styled('figure')`
+const WaffleChart = styled("figure")`
   width: 70vw;
-  max-width: ${10*boxWidth + 11*gap}px;
+  max-width: ${10 * boxWidth + 11 * gap}px;
   height: 70vw;
-  max-height: ${10*boxWidth + 11*gap}px;
+  max-height: ${10 * boxWidth + 11 * gap}px;
 
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
@@ -31,11 +31,11 @@ const WaffleChart = styled('figure')`
 
   border: 5px solid var(--text-color);
   border-radius: 3px;
-  padding: ${gap+3}px;
+  padding: ${gap + 3}px;
   margin: 0;
 `;
 
-const Waffle = styled('div')`
+const Waffle = styled("div")`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.color};
@@ -51,42 +51,66 @@ const Waffle = styled('div')`
 
 type Waffle = [category: string, color: string, count: number];
 const waffleData: Waffle[][] = [
-  [['all', `var(--base)`, 100]],
-  [['all', `var(--base)`, 100]],
-  [['all', `var(--base)`, 100]],
-  [['all', `var(--base)`, 100]],
-  [['all', `var(--base)`, 100]],
+  [["all", `var(--base)`, 100]],
+  [["all", `var(--base)`, 100]],
+  [["all", `var(--base)`, 100]],
+  [["all", `var(--base)`, 100]],
+  [["all", `var(--base)`, 100]],
   [
-    ['federal', `var(--federal)`, 15],
-    ['state', `var(--state)`, 34],
-    ['city', `var(--city)`, 51],
+    ["federal", `var(--federal)`, 15],
+    ["state", `var(--state)`, 34],
+    ["city", `var(--city)`, 51],
   ],
   [
-    ['operating-budget', `var(--operating-budget)`, 80],
-    ['debt', `var(--debt)`, 20],
+    ["operating-budget", `var(--operating-budget)`, 80],
+    ["debt", `var(--debt)`, 20],
   ],
   [
-    ['operating-budget', 'var(--operating-budget)', 25],
-    ['transportation', 'var(--transportation)', 4],
-    ['food', 'var(--food)', 3],
-    ['admin', 'var(--admin)', 8],
-    ['teachers', 'var(--teachers)', 40],
+    ["operating-budget", "var(--operating-budget)", 25],
+    ["transportation", "var(--transportation)", 4],
+    ["food", "var(--food)", 3],
+    ["admin", "var(--admin)", 8],
+    ["teachers", "var(--teachers)", 40],
   ],
-  [['district', 'var(--district)', 50]],
-  [['district', 'var(--district)', 50]],
+  [["district", "var(--district)", 50]],
+  [["district", "var(--district)", 50]],
   [
-    ['fsf', 'var(--fsf)', 26],
-    ['district', 'var(--district)', 24],
+    ["fsf", "var(--fsf)", 26],
+    ["district", "var(--district)", 24],
   ],
-  [['fsf', 'var(--fsf)', 26]],
-  [['fsf', 'var(--fsf)', 26]],
+  [["fsf", "var(--fsf)", 26]],
+  [["fsf", "var(--fsf)", 100]],
+  [
+    ["fsf-base", "var(--fsf-base)", 5],
+    ["fsf", "var(--fsf)", 95],
+  ],
+  [
+    ["fsf-grade", "var(--fsf-grade)", 60],
+    ["fsf-add", "var(--fsf-add)", 40],
+  ],
+  [
+    ["fsf-grade", "var(--fsf-grade)", 21],
+    ["fsf-add", "var(--fsf-add)", 8],
+    ["blank", "#fff", 71],
+  ],
+  [
+    ["fsf-grade", "var(--fsf-grade)", 20],
+    ["fsf-add2", "var(--fsf-add2)", 8],
+    ["fsf-add", "var(--fsf-add)", 5],
+    ["blank", "#fff", 67],
+  ],
+  [["fsf", "var(--fsf)", 100]],
+  [
+    ["fsf", "var(--fsf)", 26],
+    ["operating-budget", "var(--operating-budget)", 54],
+  ],
 ];
 
 // Convert active page waffle data into array of colors
 const getWaffles = (pageIdx: number) => {
   if (pageIdx >= waffleData.length) return [];
   const rawWaffles = waffleData[pageIdx];
-  const waffles: Waffle[] = Array(100).fill(['', `var(--empty)`, 0]);
+  const waffles: Waffle[] = Array(100).fill(["", `var(--empty)`, 0]);
   let i = 0;
   rawWaffles?.forEach((waffle: Waffle) => {
     for (let j = 0; j < waffle[2]; j++) {

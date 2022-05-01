@@ -6,7 +6,7 @@ const Introduction = () => {
     <>
       <Page
         title="Introduction"
-        body={`I grew up in the NYC public school, from pre-K through high school, and it was something I had always taken for granted. It was not until I became a high school teacher myself that I began to question the intricate—and obfuscated—inner workings of public education.`}
+        body={`I grew up in NYC public schools, from pre-K through high school, and it was something I had always taken for granted. It was not until I became a high school teacher myself that I began to question the intricate—and obfuscated—inner workings of public education.`}
       />
       <Page
         title="Introduction"

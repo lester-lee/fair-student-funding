@@ -29,27 +29,27 @@ export const NARRATIVE = [
   },
   {
     title: `Fair student funding`,
-    body: `These funds are unrestricted, and the principal can decide how this money is used. It might be spent hiring more teachers or purchasing art supplies. In SY22, FSF was the source of funding for $10 billion out of the $19 billion allocated to district schools.`,
+    body: `These funds are unrestricted, and the principal can decide how this money is used. It might be spent hiring more teachers or purchasing art supplies. In SY22, FSF was the source of funding for $10B out of the $19B allocated to district schools.`,
   },
   {
     title: `Fair Student Funding`,
-    body: `In an ideal world, schools would receive all of the money that was allocated to them -- but that does not always happen. In fact, SY22 was the <i>first year</i> since FSF was introduced in 2007 that there was enough funding to raise the minimum funding percentage to 100%.`,
+    body: `In an ideal world, schools would receive all of the money that was allocated to them -- but that does not always happen. In fact, SY22 was the <i>first year</i> since FSF was introduced in 2007 that there was enough funding to raise the minimum funding percentage to <span class="fsf">100%.</span>`,
   },
   {
     title: `Fair Student Funding`,
-    body: `In addition to a base sum of $225k, each school is allocated  dollars to schools based on the number of students enrolled, their grade levels, and their individual needs. This money follows students, so a student who transfers from one school to another will impact the FSF allocations of both schools.`,
+    body: `In addition to a <span class="fsf-base">base sum</span> of $225k, each school is allocated  dollars to schools based on the number of students enrolled, their grade levels, and their individual needs. This money follows students, so a student who transfers from one school to another will impact the FSF allocations of both schools.`,
   },
   {
     title: `Fair Student Funding`,
-    body: `Students are assigned different weights based on their grade level and needs. All students receive FSF through grade-level weights, and are eligible for additional money based on needs such as academic intervention or special education.`,
+    body: `Students are assigned different weights based on their grade level and needs. All students receive FSF through <span class="fsf-grade">grade-level</span> weights, and are eligible for <span class="fsf-add">additional</span> money based on needs such as academic intervention or special education.`,
   },
   {
     title: `Fair Student Funding`,
-    body: `Let's walk through two examples. A student in grade 11 who was performing well below standards would have a weight of 1.43. Using the FY22 Per Capita of $4,223, that student's school would be allocated $6038.89 through FSF.`,
+    body: `Let's walk through two examples. A student in <span class="fsf-grade">grade 11 (1.03)</span> who was performing <span class="fsf-add">well below (0.40)</span> standards would have a weight of 1.43. Using the FY22 Per Capita of $4,223, that student's school would be allocated $6038.89 through FSF.`,
   },
   {
     title: `Fair Student Funding`,
-    body: `A student in grade 4 who was performing below standards and learning English as a new language would have a weight of 1.65. Using the FY22 Per Capita of $4,223, that student's school would be allocated $6967.95 through FSF.`,
+    body: `A student in <span class="fsf-grade">grade 4 (1.00)</span> who was performing <span class="fsf-add">below (0.25)</span> standards and <span class="fsf-add2">learning English (0.40)</span> as a new language would have a weight of 1.65. Using the FY22 Per Capita of $4,223, that student's school would be allocated $6967.95 through FSF.`,
   },
   {
     title: `fair student funding`,
@@ -57,11 +57,15 @@ export const NARRATIVE = [
   },
   {
     title: `Bigger picture`,
-    body: `That was a quick overview of how FSF allocations are calculated, but it accounts for only a quarter of the money schools get in a given year, or a third of the operating budget. What decisions go into how the rest of that money is allocated?`,
+    body: `That was a quick overview of how <span class="fsf">FSF</span> allocations are calculated, but it accounts for only ¼ of the money schools get in a given year, or ⅓ of the <span class="operating-budget">operating budget</span>. What decisions go into how the rest of that money is allocated?`,
   },
   {
     title: `Thoughts and questions`,
-    body: `It makes sense that students with more needs should receive more resources, but I wonder to what extent those students actually see tangible benefits. The money that a student receives through FSF allocations ultimately goes into a pool of unrestricted funds that can be used at the discretion of the principal, who might or might not make the right calls.`,
+    body: `It makes sense that students with more needs should receive more resources, but I wonder to what extent those students actually see tangible benefits.`,
+  },
+  {
+    title:`Thoughts and questions`,
+    body:`The money that a student receives through FSF allocations ultimately goes into a pool of unrestricted funds that can be used at the discretion of the principal, who might or might not make the right calls.`
   },
   {
     title: `thoughts and questions`,
@@ -69,10 +73,14 @@ export const NARRATIVE = [
   },
   {
     title: `thoughts and questions`,
-    body: `What about the teachers of those students? How can they petitition for more resources? How can students submit feedback about the level of support they've been getting? Who is, and who should be, held accountable when student needs aren't met? How often are expenses unaccounted for? What slips through the cracks?  What's a sustainable and managable way to actually keep track of all these concerns?`,
+    body: `What about the teachers of those students? How can they petitition for more resources? How can students submit feedback about the level of support they've been getting? `,
+  },
+  {
+    title:`thoughts and questions`,
+    body:`Who is, and who should be, held accountable when student needs aren't met? How often are expenses unaccounted for? What slips through the cracks?  What's a sustainable and managable way to actually keep track of all these concerns?`
   },
   {
     title: `thoughts and questions`,
-    body: ` I don't envy the people who have to come up with the solutions, but I'm deeply interested in what goes into those decisions.`,
+    body: ` I don't envy the people who have to come up with the solutions.`,
   },
 ];

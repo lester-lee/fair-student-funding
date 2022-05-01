@@ -38,24 +38,33 @@ const IndexPage = () => {
       --text-color: #333;
 
       --base: #19705e;
+      //--base: var(--state);
       --empty: #ccc;
 
+      --blue0: #69c;
+      --blue1: #3f6993;
+      --blue2: #2e4760;
+
       // Categories
-      --city: #69c; // blue from NYC logo
-      --state: #3f6993;
-      --federal: #2e4760;
+      --city: var(--blue0); // blue from NYC logo
+      --state: var(--blue1);
+      --federal: var(--blue2);
 
       --operating-budget: var(--base);
       --debt: #f93; // orange from NYC logo
 
       --teachers: #1acc76;
-      --food: var(--federal);
-      --admin: var(--city);
-      --transportation: var(--state);
+      --food: var(--blue2);
+      --admin: var(--blue0);
+      --transportation: var(--blue1);
 
       --district: var(--base);
 
-      --fsf: var(--city);
+      --fsf: var(--blue0);
+      --fsf-base: var(--blue1);
+      --fsf-grade: var(--blue1);
+      --fsf-add: var(--blue0);
+      --fsf-add2: var(--blue2);
     }
     body {
       margin: 0;
@@ -110,6 +119,18 @@ const IndexPage = () => {
     }
     .fsf {
       background: var(--fsf) !important;
+    }
+    .fsf-base {
+      background: var(--fsf-base) !important;
+    }
+    .fsf-grade {
+      background: var(--fsf-grade) !important;
+    }
+    .fsf-add {
+      background: var(--fsf-add) !important;
+    }
+    .fsf-add2 {
+      background: var(--fsf-add2) !important;
     }
   `;
 

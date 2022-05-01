@@ -15,7 +15,7 @@ const Article = styled("article")`
   height: 100vh;
   scroll-snap-type: y mandatory;
 
-  padding: 0 15vw;
+  padding: 0 10vw;
 `;
 
 type Props = {

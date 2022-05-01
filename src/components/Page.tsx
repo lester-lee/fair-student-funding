@@ -35,6 +35,7 @@ const CardBody = styled("p")`
   margin: 0;
   line-height: 1.25;
   background: var(--bg);
+  padding-left: 3vw;
 
   span {
     display: inline-block;
