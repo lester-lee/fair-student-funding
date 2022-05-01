@@ -3,7 +3,7 @@ import { useState } from "react";
 import { css, Global } from "@emotion/react";
 
 // Components
-import ImageHeader from "../components/ImageHeader";
+import Title from "../components/Title";
 import Narrative from "../components/Narrative";
 import Visualization from "../components/Visualization";
 
@@ -55,14 +55,25 @@ const IndexPage = () => {
 
       --district: var(--base);
 
-      --fsf: var(--city)
+      --fsf: var(--city);
     }
     body {
       margin: 0;
     }
+
     html {
       background: var(--bg);
+      font-size: 16px;
       color: var(--text-color);
+      font-family: Ubuntu;
+
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
     }
   `;
 
@@ -105,7 +116,6 @@ const IndexPage = () => {
   return (
     <>
       <Global styles={[styles, keywordStyles]} />
-      <ImageHeader />
       <main>
         <Narrative onScroll={onScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />

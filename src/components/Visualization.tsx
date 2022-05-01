@@ -11,14 +11,14 @@ const Viz = styled('div')`
 
   margin: 0;
   padding: 0;
-  padding-top: 10vh;
+  padding-top: 12.5vh;
 
   display: flex;
   justify-content: center;
 `;
 
 const boxWidth = 30;
-const gap = 3;
+const gap = 1;
 const WaffleChart = styled('figure')`
   width: 70vw;
   max-width: ${10*boxWidth + 11*gap}px;
@@ -30,8 +30,8 @@ const WaffleChart = styled('figure')`
   gap: ${gap}px;
 
   border: 5px solid var(--text-color);
-  border-radius: 8px;
-  padding: ${gap}px;
+  border-radius: 3px;
+  padding: ${gap+3}px;
   margin: 0;
 `;
 
@@ -52,10 +52,14 @@ const Waffle = styled('div')`
 type Waffle = [category: string, color: string, count: number];
 const waffleData: Waffle[][] = [
   [['all', `var(--base)`, 100]],
+  [['all', `var(--base)`, 100]],
+  [['all', `var(--base)`, 100]],
+  [['all', `var(--base)`, 100]],
+  [['all', `var(--base)`, 100]],
   [
-    ['city', `var(--city)`, 51],
-    ['state', `var(--state)`, 34],
     ['federal', `var(--federal)`, 15],
+    ['state', `var(--state)`, 34],
+    ['city', `var(--city)`, 51],
   ],
   [
     ['operating-budget', `var(--operating-budget)`, 80],
