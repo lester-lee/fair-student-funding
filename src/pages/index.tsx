@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { css, Global } from '@emotion/react';
+import * as React from "react";
+import { useState } from "react";
+import { css, Global } from "@emotion/react";
 
 // Components
-import ImageHeader from '../components/ImageHeader';
-import Narrative from '../components/Narrative';
-import Visualization from '../components/Visualization';
+import ImageHeader from "../components/ImageHeader";
+import Narrative from "../components/Narrative";
+import Visualization from "../components/Visualization";
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -17,7 +17,7 @@ const IndexPage = () => {
    * given the scroll offset
    */
   function onScroll() {
-    const narrative = document.querySelector('article');
+    const narrative = document.querySelector("article");
     if (!narrative) return;
     const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
     // Offset by 5 for smoother updates
@@ -32,29 +32,73 @@ const IndexPage = () => {
   }
 
   const styles = css`
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
     :root {
-      --dark-blue: #264653ff;
-      --green: #2a9d8fff;
-      --yellow: #e9c46aff;
-      --orange: #f4a261ff;
-      --red: #e76f51ff;
-      --light-gray: #ddd;
-
       --bg: #fff;
-      --base: #;
+      --text-color: #333;
+
+      --base: #19705e;
+      --empty: #ccc;
+
+      // Categories
+      --city: #69c; // blue from NYC logo
+      --state: #3f6993;
+      --federal: #2e4760;
+
+      --operating-budget: var(--base);
+      --debt: #f93; // orange from NYC logo
+
+      --teachers: #1acc76;
+      --food: var(--federal);
+      --admin: var(--city);
+      --transportation: var(--state);
+
+      --district: var(--base);
+
+      --fsf: var(--city)
     }
     body {
       margin: 0;
     }
     html {
       background: var(--bg);
+      color: var(--text-color);
     }
   `;
 
   const keywordStyles = css`
     .city {
-      background: var(--dark-blue);
+      background: var(--city) !important;
+    }
+    .state {
+      background: var(--state) !important;
+    }
+    .federal {
+      background: var(--federal) !important;
+    }
+    .operating-budget {
+      background: var(--operating-budget) !important;
+    }
+    .debt {
+      background: var(--debt) !important;
+    }
+    .teachers {
+      background: var(--teachers) !important;
+    }
+    .admin {
+      background: var(--admin) !important;
+    }
+    .food {
+      background: var(--food) !important;
+    }
+    .transportation {
+      background: var(--transportation) !important;
+    }
+    .district {
+      background: var(--district) !important;
+    }
+    .fsf {
+      background: var(--fsf) !important;
     }
   `;
 

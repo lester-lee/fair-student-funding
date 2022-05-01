@@ -5,23 +5,23 @@ export const NARRATIVE = [
   },
   {
     //title:`How are schools funded?`,
-    body: `Of that $38 billion, <span class="city">the city</span> provides 51%, <span class="state">the state</span> provides 34%, and <span class="federal">the federal government</span> and other sources provide the remaining 15%.`,
+    body: `Of that $38B, <span class="city">the city</span> provides 51%, <span class="state">the state</span> provides 34%, and <span class="federal">the federal government</span> and other sources provide the remaining 15%.`,
   },
   {
     title: `Where does that money go?`,
-    body: `Not all of that money will go to <span class="operating-budget">the operating budget</span> for SY22. Roughly 20% is used for <span class="debt">other expenses</span>, such as paying off debts and contributing to pensions. For example, these expenses accounted for $6.5 billion of the $31.5 billion spent in SY18.`,
+    body: `Not all of that money will go to <span class="operating-budget">the operating budget</span> for SY22. Roughly 20% is used for <span class="debt">other expenses</span>, such as paying off debts and contributing to pensions. In SY18, these expenses accounted for $6.5B of the $31.5B spent.`,
   },
   {
     //title:`Where does that money go?`,
-    body: `The remaining 80% is used to pay for all aspects of a student's education. About half of <span class="operating-budget">the operating budget</span> is used to pay <span class="teachers">teachers</span>, and the rest is spent on services like <span class="administration">administration</span>, <span class="food">food</span>, <span class="transportation">transportation</span>, and <span class="building">building maintenance</span>.`,
+    body: `The remaining 80% is used to pay for all aspects of a student's education. About half of <span class="operating-budget">the operating budget</span> is used to pay <span class="teachers">teachers</span>, and the rest is spent on services like <span class="admin">administration</span>, <span class="food">food</span>, and <span class="transportation">transportation</span>.`,
   },
   {
     title: `District school budgets`,
-    body: `Let's take a closer look at the funds allocated to district schools, which accounted for 50% of the overall budget in SY22. That's roughly $19 billion for ~1600 schools. If this money were distributed evenly, each school would receive about $12 million dollars.`,
+    body: `Let's take a closer look at the funds allocated to <span class="district">district schools</span>, which accounted for 50% of the overall budget in SY22. That's $19B for ~1600 schools. If this money were distributed evenly, each school would receive about $12M dollars.`,
   },
   {
     //title:`District school budgets`,
-    body: `These funds are <i>not</i> distributed evenly, however; a number of factors play into how much money an individual school might receive in a given year. The principal of each school is responsible for working with their School Leadership Team to create plans for how that money should be spent, and these plans have to be approved by superintendents.`,
+    body: `These funds are <i>not</i> distributed evenly, however; a number of factors play into how much money an individual school might receive in a given year.`,
   },
   {
     title: `Fair Student Funding`,

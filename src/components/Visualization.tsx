@@ -18,18 +18,19 @@ const Viz = styled('div')`
 `;
 
 const boxWidth = 30;
-const gap = 4;
+const gap = 3;
 const WaffleChart = styled('figure')`
-  width: 80vw;
+  width: 70vw;
   max-width: ${10*boxWidth + 11*gap}px;
-  height: 80vw;
+  height: 70vw;
   max-height: ${10*boxWidth + 11*gap}px;
 
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
   gap: ${gap}px;
 
-  border: 5px solid #333;
+  border: 5px solid var(--text-color);
+  border-radius: 8px;
   padding: ${gap}px;
   margin: 0;
 `;
@@ -50,39 +51,38 @@ const Waffle = styled('div')`
 
 type Waffle = [category: string, color: string, count: number];
 const waffleData: Waffle[][] = [
-  [['all', `var(--dark-blue)`, 100]],
+  [['all', `var(--base)`, 100]],
   [
-    ['city', `var(--dark-blue)`, 51],
-    ['state', `var(--dark-blue)`, 34],
-    ['federal', `var(--dark-blue)`, 15],
+    ['city', `var(--city)`, 51],
+    ['state', `var(--state)`, 34],
+    ['federal', `var(--federal)`, 15],
   ],
   [
-    ['operating-budget', `var(--dark-blue)`, 80],
-    ['debt', `var(--red)`, 20],
+    ['operating-budget', `var(--operating-budget)`, 80],
+    ['debt', `var(--debt)`, 20],
   ],
   [
-    ['teachers', 'var(--dark-blue)', 40],
-    ['administration', 'var(--dark-blue)', 8],
-    ['transportation', 'var(--dark-blue)', 4],
-    ['food', 'var(--dark-blue)', 3],
-    ['building', 'var(--dark-blue)', 2],
-    ['operating-budget', 'var(--dark-blue)', 23],
+    ['operating-budget', 'var(--operating-budget)', 25],
+    ['transportation', 'var(--transportation)', 4],
+    ['food', 'var(--food)', 3],
+    ['admin', 'var(--admin)', 8],
+    ['teachers', 'var(--teachers)', 40],
   ],
-  [['district', 'var(--dark-blue)', 50]],
-  [['district', 'var(--dark-blue)', 50]],
+  [['district', 'var(--district)', 50]],
+  [['district', 'var(--district)', 50]],
   [
-    ['fsf', 'var(--orange)', 26],
-    ['district', 'var(--dark-blue)', 24],
+    ['fsf', 'var(--fsf)', 26],
+    ['district', 'var(--district)', 24],
   ],
-  [['fsf', 'var(--orange)', 26]],
-  [['fsf', 'var(--orange)', 26]],
+  [['fsf', 'var(--fsf)', 26]],
+  [['fsf', 'var(--fsf)', 26]],
 ];
 
 // Convert active page waffle data into array of colors
 const getWaffles = (pageIdx: number) => {
   if (pageIdx >= waffleData.length) return [];
   const rawWaffles = waffleData[pageIdx];
-  const waffles: Waffle[] = Array(100).fill(['', `var(--light-gray)`, 0]);
+  const waffles: Waffle[] = Array(100).fill(['', `var(--empty)`, 0]);
   let i = 0;
   rawWaffles?.forEach((waffle: Waffle) => {
     for (let j = 0; j < waffle[2]; j++) {
@@ -133,7 +133,7 @@ const Visualization = ({ activePage, previousPage }: Props) => {
             color={color}
             key={i}
             style={{
-              transitionDelay: `${Math.max(0, (i - differentIdx) * 20)}ms`,
+              transitionDelay: `${Math.max(0, (i - differentIdx) * 10)}ms`,
             }}
           />
         ))}

@@ -24,9 +24,9 @@ const Page = styled("section")`
 `;
 
 const Card = styled("div")`
-  background: #fff;
+  background: var(--bg);
   font-family: Ubuntu;
-  margin-top: 60vh;
+  margin-top: 52vh;
   h1 {
     text-transform: capitalize;
     text-align: center;
@@ -34,12 +34,19 @@ const Card = styled("div")`
   }
   p {
     margin: 0;
+    line-height: 1.25;
 
     span {
-      border-bottom: 3px solid red;
+      display: inline-block;
+      padding: 2px 4px;
+      border-radius: 2px;
+
+      color: var(--bg);
+      text-transform: uppercase;
+      font-size: .75rem;
     }
   }
-  padding: 10%;
+  padding: 2px 13vw;
   z-index: 3;
 `;
 

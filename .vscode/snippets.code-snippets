@@ -18,5 +18,13 @@
   "copy": {
     "prefix": "card",
     "body": ["{", "\ttitle:`$1`,", "\tbody:`$2`", "},"]
+  },
+  "span class": {
+    "prefix": ".S",
+    "body": [
+      ".$1 {",
+      "\tbackground: var(--$1) !important;",
+      "}"
+    ]
   }
 }
