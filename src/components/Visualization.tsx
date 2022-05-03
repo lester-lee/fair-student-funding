@@ -53,11 +53,11 @@ type Waffle = [category: string, color: string, count: number];
 
 const schoolArt: Waffle[] = [
   ['title-art', 'var(--school)', 4],
-  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--door)', 2],
   ['title-art', 'var(--school)', 5],
   ['title-art', 'var(--window)', 1],
   ['title-art', 'var(--school)', 2],
-  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--door)', 2],
   ['title-art', 'var(--school)', 2],
   ['title-art', 'var(--window)', 1],
   ['title-art', 'var(--school)', 12],
@@ -94,10 +94,10 @@ const waffleData: Waffle[][] = [
     ["debt", `var(--debt)`, 20],
   ],
   [
-    ["operating-budget", "var(--operating-budget)", 25],
     ["transportation", "var(--transportation)", 4],
     ["food", "var(--food)", 3],
     ["admin", "var(--admin)", 8],
+    ["operating-budget", "var(--operating-budget)", 25],
     ["teachers", "var(--teachers)", 40],
   ],
   [["district", "var(--district)", 50]],

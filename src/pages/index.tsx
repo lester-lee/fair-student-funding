@@ -38,17 +38,17 @@ const IndexPage = () => {
       --text-color: #333;
 
       --base: #19705e;
-      //--base: var(--state);
       --empty: #ccc;
 
-      --blue0: #69c;
-      --blue1: #3f6993;
+      --blue0: #8dd68b;
+      --blue1: #19705e;
       --blue2: #2e4760;
 
       // Title Art
-      --school: #ffe;
-      --sky: aqua;
-      --window: blue;
+      --door: #e56447;
+      --sky: #bad8ef;
+      --window: #fff;
+      --school: #edb023;
 
       // Categories
       --city: var(--blue0); // blue from NYC logo
@@ -58,10 +58,10 @@ const IndexPage = () => {
       --operating-budget: var(--base);
       --debt: #f93; // orange from NYC logo
 
-      --teachers: #1acc76;
-      --food: var(--blue2);
-      --admin: var(--blue0);
-      --transportation: var(--blue1);
+      --teachers: var(--blue0);
+      --admin: var(--blue2);
+      --food: #3a2f51;
+      --transportation: #222;
 
       --district: var(--base);
 

@@ -57,7 +57,7 @@ export const NARRATIVE = [
   },
   {
     title: `Bigger picture`,
-    body: `That was a quick overview of how <span class="fsf">FSF</span> allocations are calculated, but it accounts for only ¼ of the money schools get in a given year, or ⅓ of the <span class="operating-budget">operating budget</span>. What decisions go into how the rest of that money is allocated?`,
+    body: `That was a quick overview of how <span class="fsf">FSF</span> allocations are calculated, but it accounts for only a quarter of the money schools get in a given year, or a third of the <span class="operating-budget">operating budget</span>. What decisions go into how the rest of that money is allocated?`,
   },
   {
     title: `Thoughts and questions`,
