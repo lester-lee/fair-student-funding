@@ -50,11 +50,39 @@ const Waffle = styled("div")`
 //====================
 
 type Waffle = [category: string, color: string, count: number];
+
+const schoolArt: Waffle[] = [
+  ['title-art', 'var(--school)', 4],
+  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--school)', 5],
+  ['title-art', 'var(--window)', 1],
+  ['title-art', 'var(--school)', 2],
+  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--school)', 2],
+  ['title-art', 'var(--window)', 1],
+  ['title-art', 'var(--school)', 12],
+  ['title-art', 'var(--window)', 1],
+  ['title-art', 'var(--school)', 2],
+  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--school)', 2],
+  ['title-art', 'var(--window)', 1],
+  ['title-art', 'var(--school)', 11],
+  ['title-art', 'var(--sky)', 3],
+  ['title-art', 'var(--school)', 1],
+  ['title-art', 'var(--window)', 2],
+  ['title-art', 'var(--school)', 1],
+  ['title-art', 'var(--sky)', 6],
+  ['title-art', 'var(--school)', 4],
+  ['title-art', 'var(--sky)', 6],
+  ['title-art', 'var(--school)', 4],
+  ['title-art', 'var(--sky)', 23],
+];
+
 const waffleData: Waffle[][] = [
-  [["all", `var(--base)`, 100]],
-  [["all", `var(--base)`, 100]],
-  [["all", `var(--base)`, 100]],
-  [["all", `var(--base)`, 100]],
+  schoolArt,
+  schoolArt,
+  schoolArt,
+  schoolArt,
   [["all", `var(--base)`, 100]],
   [
     ["federal", `var(--federal)`, 15],

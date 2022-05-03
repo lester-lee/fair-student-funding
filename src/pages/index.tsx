@@ -45,6 +45,11 @@ const IndexPage = () => {
       --blue1: #3f6993;
       --blue2: #2e4760;
 
+      // Title Art
+      --school: #ffe;
+      --sky: aqua;
+      --window: blue;
+
       // Categories
       --city: var(--blue0); // blue from NYC logo
       --state: var(--blue1);
