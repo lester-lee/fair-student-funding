@@ -27,6 +27,7 @@ const CardTitle = styled("h1")`
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 0 10vw;
   height: 10.5vh;
 `;
 
