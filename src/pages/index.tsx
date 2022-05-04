@@ -53,6 +53,10 @@ const IndexPage = () => {
       // Ellipse Art
       --ellipse-dark: #333;
 
+      // Question Mark
+      --question-bg: #eee;
+      --question-fg: #333;
+
       // Categories
       --city: var(--blue0); // blue from NYC logo
       --state: var(--blue1);

@@ -90,26 +90,52 @@ const ellipsesArt: Waffle[] = [
 
 // Creates the random mural for the "bureaucracy" page
 const generateRandomMural = () => {
-  const generateColor = () => {
+  // Create random hex code w/ values between low-high
+  const generateColor = (low: number, high: number) => {
     const rgb = Array.from({ length: 3 }, () => {
-      const x = Math.floor(99 + Math.random() * 99);
+      const x = Math.floor(low + Math.random() * (high - low));
       return x.toString(16).padStart(2, '0');
     });
     console.log(rgb);
 
     return '#' + rgb.join('');
   };
+
   let numWaffles = 0;
   const waffles: Waffle[] = [];
   while (numWaffles < 100) {
     // Generate run of a random color waffle
     const runLength = Math.min(100 - numWaffles, Math.random() * 10);
-    const randomColor = generateColor();
+    const randomColor = generateColor(50, 199);
     waffles.push(['', randomColor, runLength]);
     numWaffles += runLength;
   }
   return waffles;
 };
+
+const questionArt: Waffle[] = [
+  ['question-bg', 'var(--question-bg)', 14],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 18],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 7],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 7],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 2],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 4],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 2],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 4],
+  ['question-fg', 'var(--question-fg)', 2],
+  ['question-bg', 'var(--question-bg)', 3],
+  ['question-fg', 'var(--question-fg)', 1],
+  ['question-bg', 'var(--question-bg)', 5],
+  ['question-fg', 'var(--question-fg)', 4],
+  ['question-bg', 'var(--question-bg)', 13],
+];
 
 const waffleData: Waffle[][] = [
   schoolArt,
@@ -168,6 +194,9 @@ const waffleData: Waffle[][] = [
   ellipsesArt,
   ellipsesArt,
   generateRandomMural(),
+  questionArt,
+  questionArt,
+  schoolArt,
 ];
 
 // Convert active page waffle data into array of colors
