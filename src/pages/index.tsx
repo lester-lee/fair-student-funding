@@ -1,11 +1,11 @@
-import * as React from "react";
-import { useState } from "react";
-import { css, Global } from "@emotion/react";
+import * as React from 'react';
+import { useState } from 'react';
+import { css, Global } from '@emotion/react';
 
 // Components
-import Title from "../components/Title";
-import Narrative from "../components/Narrative";
-import Visualization from "../components/Visualization";
+import Narrative from '../components/Narrative';
+import Visualization from '../components/Visualization';
+import PageTracker from '../components/PageTracker';
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -17,7 +17,7 @@ const IndexPage = () => {
    * given the scroll offset
    */
   function onScroll() {
-    const narrative = document.querySelector("article");
+    const narrative = document.querySelector('article');
     if (!narrative) return;
     const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
     // Offset by 5 for smoother updates
@@ -32,7 +32,7 @@ const IndexPage = () => {
   }
 
   const styles = css`
-    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     :root {
       --bg: #fff;
       --text-color: #333;
@@ -153,6 +153,7 @@ const IndexPage = () => {
         <Narrative onScroll={onScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
+      <PageTracker activePage={activePage} />
     </>
   );
 };
