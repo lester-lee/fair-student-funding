@@ -1,8 +1,8 @@
-import * as React from "react";
-import styled from "@emotion/styled";
-import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
+import * as React from 'react';
+import styled from '@emotion/styled';
+import parse from 'html-react-parser';
 
-const FullHeightContainer = styled("section")`
+const FullHeightContainer = styled('section')`
   height: 100vh;
   scroll-snap-align: start;
   flex: none;
@@ -11,16 +11,16 @@ const FullHeightContainer = styled("section")`
   justify-content: center;
 `;
 
-const Card = styled("div")`
+const Card = styled('div')`
   padding-top: 2vh;
   z-index: 3;
 `;
 
-const VerticalSpace = styled("div")`
+const VerticalSpace = styled('div')`
   height: 77vw;
 `;
 
-const CardTitle = styled("h1")`
+const CardTitle = styled('h1')`
   text-transform: capitalize;
   display: flex;
   text-align: center;
@@ -31,12 +31,11 @@ const CardTitle = styled("h1")`
   height: 10.5vh;
 `;
 
-const CardBody = styled("p")`
+const CardBody = styled('p')`
   min-height: 40%;
   margin: 0;
   line-height: 1.25;
   background: var(--bg);
-  padding-left: 3vw;
 
   span {
     display: inline-block;
@@ -51,7 +50,7 @@ const CardBody = styled("p")`
 
 type Props = {
   title?: string | undefined;
-  body?: string | JSX.Element | JSX.Element[];
+  body?: string;
 };
 
 const Page = ({ title, body }: Props) => {
@@ -60,7 +59,7 @@ const Page = ({ title, body }: Props) => {
       <Card>
         <div>{title && <CardTitle>{title}</CardTitle>}</div>
         <VerticalSpace />
-        {body && <CardBody>{body}</CardBody>}
+        {body && <CardBody>{parse(body)}</CardBody>}
       </Card>
     </FullHeightContainer>
   );

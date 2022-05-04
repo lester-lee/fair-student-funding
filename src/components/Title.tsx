@@ -6,7 +6,7 @@ const Title = () => {
   return (
     <Page
       title={"An Exploration of NYC School Budgets"}
-      body={"by Lester Lee"}
+      body={"<center>by Lester Lee</center>"}
     />
   );
 };

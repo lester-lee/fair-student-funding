@@ -1,7 +1,7 @@
-import * as React from "react";
-import styled from "@emotion/styled";
+import * as React from 'react';
+import styled from '@emotion/styled';
 
-const Viz = styled("div")`
+const Viz = styled('div')`
   width: 100vw;
   height: 100vh;
 
@@ -19,7 +19,7 @@ const Viz = styled("div")`
 
 const boxWidth = 30;
 const gap = 1;
-const WaffleChart = styled("figure")`
+const WaffleChart = styled('figure')`
   width: 70vw;
   max-width: ${10 * boxWidth + 11 * gap}px;
   height: 70vw;
@@ -35,7 +35,7 @@ const WaffleChart = styled("figure")`
   margin: 0;
 `;
 
-const Waffle = styled("div")`
+const Waffle = styled('div')`
   width: 100%;
   height: 100%;
   background-color: ${(props) => props.color};
@@ -78,67 +78,103 @@ const schoolArt: Waffle[] = [
   ['title-art', 'var(--sky)', 23],
 ];
 
+const ellipsesArt: Waffle[] = [
+  ['', 'var(--empty)', 11],
+  ['ellipse-dark', 'var(--ellipse-dark)', 1],
+  ['', 'var(--empty)', 1],
+  ['ellipse-dark', 'var(--ellipse-dark)', 1],
+  ['', 'var(--empty)', 1],
+  ['ellipse-dark', 'var(--ellipse-dark)', 1],
+  ['', 'var(--empty)', 1],
+];
+
+// Creates the random mural for the "bureaucracy" page
+const generateRandomMural = () => {
+  const generateColor = () => {
+    const rgb = Array.from({ length: 3 }, () => {
+      const x = Math.floor(99 + Math.random() * 99);
+      return x.toString(16).padStart(2, '0');
+    });
+    console.log(rgb);
+
+    return '#' + rgb.join('');
+  };
+  let numWaffles = 0;
+  const waffles: Waffle[] = [];
+  while (numWaffles < 100) {
+    // Generate run of a random color waffle
+    const runLength = Math.min(100 - numWaffles, Math.random() * 10);
+    const randomColor = generateColor();
+    waffles.push(['', randomColor, runLength]);
+    numWaffles += runLength;
+  }
+  return waffles;
+};
+
 const waffleData: Waffle[][] = [
   schoolArt,
   schoolArt,
   schoolArt,
   schoolArt,
-  [["all", `var(--base)`, 100]],
+  [['all', `var(--base)`, 100]],
   [
-    ["federal", `var(--federal)`, 15],
-    ["state", `var(--state)`, 34],
-    ["city", `var(--city)`, 51],
+    ['federal', `var(--federal)`, 15],
+    ['state', `var(--state)`, 34],
+    ['city', `var(--city)`, 51],
   ],
   [
-    ["operating-budget", `var(--operating-budget)`, 80],
-    ["debt", `var(--debt)`, 20],
+    ['operating-budget', `var(--operating-budget)`, 80],
+    ['debt', `var(--debt)`, 20],
   ],
   [
-    ["transportation", "var(--transportation)", 4],
-    ["food", "var(--food)", 3],
-    ["admin", "var(--admin)", 8],
-    ["operating-budget", "var(--operating-budget)", 25],
-    ["teachers", "var(--teachers)", 40],
+    ['transportation', 'var(--transportation)', 4],
+    ['food', 'var(--food)', 3],
+    ['admin', 'var(--admin)', 8],
+    ['operating-budget', 'var(--operating-budget)', 25],
+    ['teachers', 'var(--teachers)', 40],
   ],
-  [["district", "var(--district)", 50]],
-  [["district", "var(--district)", 50]],
+  [['district', 'var(--district)', 50]],
+  [['district', 'var(--district)', 50]],
   [
-    ["fsf", "var(--fsf)", 26],
-    ["district", "var(--district)", 24],
+    ['fsf', 'var(--fsf)', 26],
+    ['district', 'var(--district)', 24],
   ],
-  [["fsf", "var(--fsf)", 26]],
-  [["fsf", "var(--fsf)", 100]],
+  [['fsf', 'var(--fsf)', 26]],
+  [['fsf', 'var(--fsf)', 100]],
   [
-    ["fsf-base", "var(--fsf-base)", 5],
-    ["fsf", "var(--fsf)", 95],
-  ],
-  [
-    ["fsf-grade", "var(--fsf-grade)", 60],
-    ["fsf-add", "var(--fsf-add)", 40],
+    ['fsf-base', 'var(--fsf-base)', 5],
+    ['fsf', 'var(--fsf)', 95],
   ],
   [
-    ["fsf-grade", "var(--fsf-grade)", 21],
-    ["fsf-add", "var(--fsf-add)", 8],
-    ["blank", "#fff", 71],
+    ['fsf-grade', 'var(--fsf-grade)', 60],
+    ['fsf-add', 'var(--fsf-add)', 40],
   ],
   [
-    ["fsf-grade", "var(--fsf-grade)", 20],
-    ["fsf-add2", "var(--fsf-add2)", 8],
-    ["fsf-add", "var(--fsf-add)", 5],
-    ["blank", "#fff", 67],
+    ['fsf-grade', 'var(--fsf-grade)', 21],
+    ['fsf-add', 'var(--fsf-add)', 8],
+    ['blank', '#fff', 71],
   ],
-  [["fsf", "var(--fsf)", 100]],
   [
-    ["fsf", "var(--fsf)", 26],
-    ["operating-budget", "var(--operating-budget)", 54],
+    ['fsf-grade', 'var(--fsf-grade)', 20],
+    ['fsf-add2', 'var(--fsf-add2)', 8],
+    ['fsf-add', 'var(--fsf-add)', 5],
+    ['blank', '#fff', 67],
   ],
+  [['fsf', 'var(--fsf)', 100]],
+  [
+    ['fsf', 'var(--fsf)', 26],
+    ['operating-budget', 'var(--operating-budget)', 54],
+  ],
+  ellipsesArt,
+  ellipsesArt,
+  generateRandomMural(),
 ];
 
 // Convert active page waffle data into array of colors
 const getWaffles = (pageIdx: number) => {
   if (pageIdx >= waffleData.length) return [];
   const rawWaffles = waffleData[pageIdx];
-  const waffles: Waffle[] = Array(100).fill(["", `var(--empty)`, 0]);
+  const waffles: Waffle[] = Array(100).fill(['', `var(--empty)`, 0]);
   let i = 0;
   rawWaffles?.forEach((waffle: Waffle) => {
     for (let j = 0; j < waffle[2]; j++) {
@@ -189,7 +225,7 @@ const Visualization = ({ activePage, previousPage }: Props) => {
             color={color}
             key={i}
             style={{
-              transitionDelay: `${Math.max(0, (i - differentIdx) * 10)}ms`,
+              transitionDelay: `${Math.max(0, (i - differentIdx) * 15)}ms`,
             }}
           />
         ))}

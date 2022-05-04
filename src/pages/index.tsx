@@ -50,6 +50,9 @@ const IndexPage = () => {
       --window: #fff;
       --school: #edb023;
 
+      // Ellipse Art
+      --ellipse-dark: #333;
+
       // Categories
       --city: var(--blue0); // blue from NYC logo
       --state: var(--blue1);
@@ -60,7 +63,7 @@ const IndexPage = () => {
 
       --teachers: var(--blue0);
       --admin: var(--blue2);
-      --food: #3a2f51;
+      --food: #58487a;
       --transportation: #222;
 
       --district: var(--base);
