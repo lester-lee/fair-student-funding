@@ -5,7 +5,6 @@ import { css, Global } from '@emotion/react';
 // Components
 import Narrative from '../components/Narrative';
 import Visualization from '../components/Visualization';
-import PageTracker from '../components/PageTracker';
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -153,7 +152,6 @@ const IndexPage = () => {
         <Narrative onScroll={onScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
-      <PageTracker activePage={activePage} />
     </>
   );
 };
