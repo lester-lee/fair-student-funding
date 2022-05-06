@@ -3,8 +3,9 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Fair Student Funding`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.lester-lee.com/fair-student-funding/`
   },
+  pathPrefix: "/fair-student-funding",
   plugins: ["gatsby-plugin-emotion", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
     options: {
