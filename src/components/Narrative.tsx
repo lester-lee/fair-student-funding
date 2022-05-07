@@ -12,7 +12,8 @@ const Article = styled('article')`
   overflow: auto;
   width: 100vw;
   height: 100vh;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
   padding: 0 15vw;
 `;
 

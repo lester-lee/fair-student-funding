@@ -18,8 +18,8 @@ const IndexPage = () => {
   function onScroll() {
     const narrative = document.querySelector('article');
     if (!narrative) return;
-    const pageHeight = narrative.scrollHeight - narrative?.scrollTopMax;
-    // Offset by 5 for smoother updates
+    const pageHeight = window.innerHeight;
+    // Offset for smoother updates
     const pageIndex = Math.floor(
       (narrative.scrollTop + pageHeight / 2) / pageHeight
     );

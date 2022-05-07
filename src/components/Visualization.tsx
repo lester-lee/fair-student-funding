@@ -96,7 +96,6 @@ const generateRandomMural = () => {
       const x = Math.floor(low + Math.random() * (high - low));
       return x.toString(16).padStart(2, '0');
     });
-    console.log(rgb);
 
     return '#' + rgb.join('');
   };
@@ -254,7 +253,7 @@ const Visualization = ({ activePage, previousPage }: Props) => {
             color={color}
             key={i}
             style={{
-              transitionDelay: `${Math.max(0, (i - differentIdx) * 15)}ms`,
+              transitionDelay: `${Math.max(0, (i - differentIdx) * 10)}ms`,
             }}
           />
         ))}
