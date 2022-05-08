@@ -29,7 +29,7 @@ const CardTitle = styled("h1")`
 `;
 
 const CardBody = styled("div")`
-  height: 50vh;
+  min-height: 50vh;
   margin: 0 5% 0 8%;
   line-height: 1.25;
   background: var(--bg);
@@ -48,6 +48,12 @@ const CardBody = styled("div")`
     text-decoration: none;
     font-weight: bold;
     color: var(--base);
+  }
+
+  @media (min-width: 450px) {
+    width: 400px;
+    margin: 0 auto;
+    padding-left: 25px;
   }
 `;
 
