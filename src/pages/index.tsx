@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { css, Global } from "@emotion/react";
+import { Helmet } from "react-helmet";
 
 // Components
 import Narrative from "../components/Narrative";
@@ -11,9 +12,7 @@ const IndexPage = () => {
   const [activePage, setActivePage] = useState(0);
 
   /**
-   * Calculate the height of a single page
-   * and use to calculate the current page
-   * given the scroll offset of the article
+   * Use scroll position to update activePage
    */
   const onArticleScroll = (event: React.UIEvent<HTMLElement>) => {
     const article = event.currentTarget;
@@ -144,6 +143,19 @@ const IndexPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>NYC School Budgets</title>
+        <link
+          rel="canonical"
+          href="https://www.lester-lee.com/fair-student-funding"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="favicon.png"
+        />
+      </Helmet>
       <Global styles={[styles, keywordStyles]} />
       <main>
         <Narrative onScroll={onArticleScroll} />
