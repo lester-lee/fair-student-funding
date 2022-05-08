@@ -6,6 +6,7 @@ import { Helmet } from "react-helmet";
 // Components
 import Narrative from "../components/Narrative";
 import Visualization from "../components/Visualization";
+import Nav from "../components/Nav";
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -25,7 +26,7 @@ const IndexPage = () => {
     }
   };
 
-  const styles = css`
+  const cssVariables = css`
     @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
     :root {
       --bg: #fff;
@@ -72,6 +73,9 @@ const IndexPage = () => {
       --fsf-add: var(--blue0);
       --fsf-add2: var(--blue2);
     }
+  `;
+
+  const styles = css`
     body {
       margin: 0;
       overflow: hidden;
@@ -82,8 +86,8 @@ const IndexPage = () => {
       font-size: 16px;
       color: var(--text-color);
       font-family: Ubuntu;
-
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     *,
@@ -149,18 +153,14 @@ const IndexPage = () => {
           rel="canonical"
           href="https://www.lester-lee.com/fair-student-funding"
         />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="favicon.png"
-        />
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
       </Helmet>
-      <Global styles={[styles, keywordStyles]} />
+      <Global styles={[cssVariables, styles, keywordStyles]} />
       <main>
         <Narrative onScroll={onArticleScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
+      <Nav />
     </>
   );
 };

@@ -23,7 +23,7 @@ type Props = {
 const Narrative = ({ onScroll }: Props) => {
   return (
     <Article onScroll={onScroll}>
-      <Title />
+      <Title/>
       <Introduction />
 
       {NARRATIVE.map((page, i) => (

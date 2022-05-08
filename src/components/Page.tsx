@@ -49,13 +49,14 @@ const CardBody = styled('p')`
 `;
 
 type Props = {
-  title?: string | undefined;
+  title?: string;
   body?: string;
+  id?: string;
 };
 
-const Page = ({ title, body }: Props) => {
+const Page = ({ title, body, id }: Props) => {
   return (
-    <FullHeightContainer>
+    <FullHeightContainer id={id}>
       <Card>
         <div>{title && <CardTitle>{title}</CardTitle>}</div>
         <VerticalSpace />
