@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { css, Global } from '@emotion/react';
+import * as React from "react";
+import { useState } from "react";
+import { css, Global } from "@emotion/react";
 
 // Components
-import Narrative from '../components/Narrative';
-import Visualization from '../components/Visualization';
+import Narrative from "../components/Narrative";
+import Visualization from "../components/Visualization";
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -13,25 +13,21 @@ const IndexPage = () => {
   /**
    * Calculate the height of a single page
    * and use to calculate the current page
-   * given the scroll offset
+   * given the scroll offset of the article
    */
-  function onScroll() {
-    const narrative = document.querySelector('article');
-    if (!narrative) return;
-    const pageHeight = window.innerHeight;
-    // Offset for smoother updates
-    const pageIndex = Math.floor(
-      (narrative.scrollTop + pageHeight / 2) / pageHeight
-    );
+  const onArticleScroll = (event: React.UIEvent<HTMLElement>) => {
+    const article = event.currentTarget;
+    const pageHeight = article.offsetHeight;
+    const pageIndex = Math.floor((article.scrollTop + 1) / pageHeight);
 
     if (pageIndex != activePage) {
       setPreviousPage(activePage);
       setActivePage(pageIndex);
     }
-  }
+  };
 
   const styles = css`
-    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
     :root {
       --bg: #fff;
       --text-color: #333;
@@ -79,6 +75,7 @@ const IndexPage = () => {
     }
     body {
       margin: 0;
+      overflow: hidden;
     }
 
     html {
@@ -149,7 +146,7 @@ const IndexPage = () => {
     <>
       <Global styles={[styles, keywordStyles]} />
       <main>
-        <Narrative onScroll={onScroll} />
+        <Narrative onScroll={onArticleScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
     </>

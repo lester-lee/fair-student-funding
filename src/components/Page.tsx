@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import parse from 'html-react-parser';
 
 const FullHeightContainer = styled('section')`
-  height: 100vh;
+  height: 100%;
   scroll-snap-align: start;
   flex: none;
 
@@ -18,6 +18,7 @@ const Card = styled('div')`
 
 const VerticalSpace = styled('div')`
   height: 77vw;
+  max-height: 350px;
 `;
 
 const CardTitle = styled('h1')`
@@ -26,13 +27,13 @@ const CardTitle = styled('h1')`
   text-align: center;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 15vw;
   height: 10.5vh;
 `;
 
 const CardBody = styled('p')`
-  min-height: 40%;
-  margin: 0;
+  height: 50vh;
+  margin: 0 15vw;
   line-height: 1.25;
   background: var(--bg);
 

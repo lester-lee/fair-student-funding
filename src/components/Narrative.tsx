@@ -1,24 +1,23 @@
-import * as React from 'react';
-import styled from '@emotion/styled';
+import * as React from "react";
+import styled from "@emotion/styled";
 
-import { NARRATIVE } from '../constants/copy';
-import Title from './Title';
-import Introduction from './Introduction';
-import Page from './Page';
+import { NARRATIVE } from "../constants/copy";
+import Title from "./Title";
+import Introduction from "./Introduction";
+import Page from "./Page";
 
-const Article = styled('article')`
+const Article = styled("article")`
   display: flex;
   flex-flow: column nowrap;
-  overflow: auto;
   width: 100vw;
   height: 100vh;
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
-  padding: 0 15vw;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 `;
 
+
 type Props = {
-  onScroll: () => void;
+  onScroll: (event: React.UIEvent<HTMLElement>) => void;
 };
 
 const Narrative = ({ onScroll }: Props) => {
