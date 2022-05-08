@@ -24,19 +24,15 @@ const NavItem = styled("li")`
   cursor: pointer;
 `;
 
+const scrollTo = (id: string) => () => {
+  document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+};
+
 const Nav = () => {
   return (
     <Navbar>
-      <NavItem>about</NavItem>
-      <NavItem
-        onClick={() => {
-          document
-            .querySelector("#title")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        top
-      </NavItem>
+      <NavItem onClick={scrollTo("#about")}>about</NavItem>
+      <NavItem onClick={scrollTo("#title")}>top</NavItem>
     </Navbar>
   );
 };

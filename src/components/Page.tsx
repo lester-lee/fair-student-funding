@@ -2,18 +2,13 @@ import * as React from "react";
 import styled from "@emotion/styled";
 import parse from "html-react-parser";
 
-const FullHeightContainer = styled("section")`
+const Card = styled("section")`
+  padding-top: 2vh;
+  z-index: 3;
+  width: 100%;
   height: 100%;
   scroll-snap-align: start;
   flex: none;
-
-  display: flex;
-  justify-content: center;
-`;
-
-const Card = styled("div")`
-  padding-top: 2vh;
-  z-index: 3;
 `;
 
 const VerticalSpace = styled("div")`
@@ -33,7 +28,7 @@ const CardTitle = styled("h1")`
   background: var(--bg);
 `;
 
-const CardBody = styled("p")`
+const CardBody = styled("div")`
   height: 50vh;
   margin: 0 5% 0 8%;
   line-height: 1.25;
@@ -48,23 +43,28 @@ const CardBody = styled("p")`
     text-transform: uppercase;
     font-size: 0.75rem;
   }
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--base);
+  }
 `;
 
 type Props = {
   title?: string;
   body?: string;
   id?: string;
+  vspace?: boolean;
 };
 
-const Page = ({ title, body, id }: Props) => {
+const Page = ({ title, body, id, vspace = true }: Props) => {
   return (
-    <FullHeightContainer id={id}>
-      <Card>
-        <div>{title && <CardTitle>{title}</CardTitle>}</div>
-        <VerticalSpace />
-        {body && <CardBody>{parse(body)}</CardBody>}
-      </Card>
-    </FullHeightContainer>
+    <Card id={id}>
+      {title && <CardTitle>{title}</CardTitle>}
+      {vspace && <VerticalSpace />}
+      {body && <CardBody>{parse(body)}</CardBody>}
+    </Card>
   );
 };
 

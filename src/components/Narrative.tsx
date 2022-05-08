@@ -34,6 +34,19 @@ const INTRODUCTION = (
   </>
 );
 
+const ABOUT = (
+  <Page
+    id="about"
+    title="About This Project"
+    vspace={false}
+    body={`
+    Hi! I'm <a href="https://www.lester-lee.com">Lester Lee</a>, and this is my final project for a Spring 2022 course in the <a href="https://www.gc.cuny.edu/data-analysis-and-visualization">M.S. Data Analysis & Visualization</a> program at the CUNY Graduate Center. Thanks for reading!
+      <h2>About the Data</h2>
+      All of my numbers are sourced from <a href="https://www.schools.nyc.gov/about-us/funding/funding-our-schools">schools.nyc.gov</a>. The <a href="https://infohub.nyced.org/reports/financial/financial-data-and-reports">InfoHub</a> was very helpful, but there was a lot of sifting through slideshows and memoranda as well for data that wasn't as immediately accessible.
+    `}
+  />
+);
+
 type Props = {
   onScroll: (event: React.UIEvent<HTMLElement>) => void;
 };
@@ -46,6 +59,7 @@ const Narrative = ({ onScroll }: Props) => {
       {NARRATIVE.map((page, i) => (
         <Page key={i} title={page.title} body={page.body} />
       ))}
+      {ABOUT}
     </Article>
   );
 };

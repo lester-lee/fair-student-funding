@@ -83,11 +83,21 @@ const IndexPage = () => {
 
     html {
       background: var(--bg);
-      font-size: 16px;
       color: var(--text-color);
       font-family: Ubuntu;
       box-sizing: border-box;
       scroll-behavior: smooth;
+    }
+
+    h1, h2 {
+      margin: 2vh 0 1vh;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+    }
+    h2 {
+      font-size: 1rem;
     }
 
     *,

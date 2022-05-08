@@ -81,6 +81,6 @@ export const NARRATIVE = [
   },
   {
     title: `thoughts and questions`,
-    body: ` I don't envy the people who have to come up with the solutions.`,
+    body: `I can only hope that the people who are making these decisions are doing so with the best interests of public education at heart.`,
   },
 ];
