@@ -7,7 +7,6 @@ const Title = () => {
     <Page
       id="title"
       title={"An Exploration of NYC School Budgets"}
-      body={"by Lester Lee"}
     />
   );
 };
