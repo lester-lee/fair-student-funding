@@ -1,8 +1,8 @@
 {
-  "name": "fair-student-funding",
+  "name": "nyc-school-budgets",
   "version": "1.0.0",
   "private": true,
-  "description": "fair-student-funding",
+  "description": "nyc-school-budgets",
   "author": "Lester Lee",
   "keywords": [
     "gatsby"

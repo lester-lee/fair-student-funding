@@ -2,10 +2,10 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Fair Student Funding`,
-    siteUrl: `https://www.lester-lee.com/fair-student-funding/`
+    title: `NYC School Budgets`,
+    siteUrl: `https://www.lester-lee.com/nyc-school-budgets/`
   },
-  pathPrefix: "/fair-student-funding",
+  pathPrefix: "/nyc-school-budgets",
   plugins: ["gatsby-plugin-emotion", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     {
