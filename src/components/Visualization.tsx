@@ -145,7 +145,7 @@ const waffleData: Waffle[][] = [
   schoolArt,
   schoolArt,
   schoolArt,
-  [["all", `var(--base)`, 100]],
+  [["all", `var(--scale2)`, 100]],
   [
     ["federal", `var(--federal)`, 15],
     ["state", `var(--state)`, 34],

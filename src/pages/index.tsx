@@ -32,12 +32,13 @@ const IndexPage = () => {
       --bg: #fff;
       --text-color: #333;
 
-      --base: #19705e;
       --empty: #ccc;
-
-      --blue0: #8dd68b;
-      --blue1: #19705e;
-      --blue2: #2e4760;
+      --scale1: #6abf30;
+      --scale2: #37946c;
+      --scale3: #306082;
+      --scale4: #3f3f74;
+      --scale5: #222034;
+      --accent: #76428a;
 
       // Title Art
       --door: #e56447;
@@ -53,25 +54,25 @@ const IndexPage = () => {
       --question-fg: #333;
 
       // Categories
-      --city: var(--blue0); // blue from NYC logo
-      --state: var(--blue1);
-      --federal: var(--blue2);
+      --city: var(--scale1);
+      --state: var(--scale2);
+      --federal: var(--scale3);
 
-      --operating-budget: var(--base);
-      --debt: #f93; // orange from NYC logo
+      --operating-budget: var(--scale2);
+      --debt: var(--accent); // orange from NYC logo
 
-      --teachers: var(--blue0);
-      --admin: var(--blue2);
-      --food: #58487a;
-      --transportation: #222;
+      --teachers: var(--scale1);
+      --admin: var(--scale3);
+      --food: var(--scale4);
+      --transportation: var(--scale5);
 
-      --district: var(--base);
+      --district: var(--scale2);
 
-      --fsf: var(--blue0);
-      --fsf-base: var(--blue1);
-      --fsf-grade: var(--blue1);
-      --fsf-add: var(--blue0);
-      --fsf-add2: var(--blue2);
+      --fsf: var(--scale1);
+      --fsf-base: var(--scale2);
+      --fsf-grade: var(--scale2);
+      --fsf-add: var(--scale1);
+      --fsf-add2: var(--scale3);
     }
   `;
 
