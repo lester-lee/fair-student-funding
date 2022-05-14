@@ -81,6 +81,6 @@ export const NARRATIVE = [
   },
   {
     title: `thoughts and questions`,
-    body: `I can only hope that the people who are making these decisions are doing so with the best interests of public education at heart.`,
+    body: `Despite the amount of research, I don't think I'm much closer to answering any of these questions. I can only hope that the people who are making these decisions are doing so with the best interests of public education at heart.`,
   },
 ];

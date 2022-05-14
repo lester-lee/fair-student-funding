@@ -37,6 +37,7 @@ const INTRODUCTION = (
 const ABOUT = (
   <Page
     id="about"
+    bg
     title="About This Project"
     vspace={false}
     body={`

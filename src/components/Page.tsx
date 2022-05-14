@@ -9,6 +9,7 @@ const Card = styled("section")`
   height: 100%;
   scroll-snap-align: start;
   flex: none;
+  ${(props: { bg: boolean }) => (props.bg ? "background: var(--bg);" : "")}
 `;
 
 const VerticalSpace = styled("div")`
@@ -60,11 +61,12 @@ type Props = {
   body?: string;
   id?: string;
   vspace?: boolean;
+  bg?: boolean;
 };
 
-const Page = ({ title, body, id, vspace = true }: Props) => {
+const Page = ({ title, body, id, vspace = true, bg = false }: Props) => {
   return (
-    <Card id={id}>
+    <Card id={id} bg={bg}>
       {title && <CardTitle>{title}</CardTitle>}
       {vspace && <VerticalSpace />}
       {body && <CardBody>{parse(body)}</CardBody>}
