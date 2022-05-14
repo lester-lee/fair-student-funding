@@ -29,10 +29,14 @@ const WaffleChart = styled("figure")`
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
   gap: ${gap}px;
 
-  border: 5px solid var(--text-color);
+  border: 5px solid
+    ${(props: { border: boolean }) =>
+      props.border ? "var(--text-color)" : "var(--bg)"};
   border-radius: 3px;
   padding: ${gap + 3}px;
   margin: 0;
+
+  transition: border 0.5s;
 `;
 
 const Waffle = styled("div")`
@@ -40,7 +44,7 @@ const Waffle = styled("div")`
   height: 100%;
   background-color: ${(props) => props.color};
   transition: all 500ms;
-  &:hover {
+  :hover {
     cursor: pointer;
   }
 `;
@@ -198,6 +202,9 @@ const waffleData: Waffle[][] = [
   schoolArt,
 ];
 
+// Indexes of which page should have borders around waffle
+const hasBorder = [4, 5, 6, 7, 8, 9, 10, 11, 14, 18];
+
 // Convert active page waffle data into array of colors
 const getWaffles = (pageIdx: number) => {
   if (pageIdx >= waffleData.length) return [];
@@ -243,10 +250,11 @@ const Visualization = ({ activePage, previousPage }: Props) => {
   const prevWaffles = getWaffles(previousPage);
   const waffles = getWaffles(activePage);
   const differentIdx = getIndexOfFirstDifference(prevWaffles, waffles);
+  const border = hasBorder.includes(activePage);
 
   return (
     <Viz>
-      <WaffleChart>
+      <WaffleChart border={border}>
         {waffles.map(([category, color], i) => (
           <Waffle
             className={category}

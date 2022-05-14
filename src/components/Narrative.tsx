@@ -33,7 +33,6 @@ const INTRODUCTION = (
     />
   </>
 );
-
 const ABOUT = (
   <Page
     id="about"
