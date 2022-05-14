@@ -89,7 +89,8 @@ const IndexPage = () => {
       scroll-behavior: smooth;
     }
 
-    h1, h2 {
+    h1,
+    h2 {
       margin: 2vh 0 1vh;
     }
 

@@ -25,14 +25,12 @@ const CardTitle = styled("h1")`
   margin: 0 15vw;
   height: 10.5vh;
   text-transform: capitalize;
-  background: var(--bg);
 `;
 
 const CardBody = styled("div")`
   min-height: 50vh;
   margin: 0 5% 0 8%;
   line-height: 1.25;
-  background: var(--bg);
 
   span {
     display: inline-block;
