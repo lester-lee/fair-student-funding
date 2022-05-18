@@ -1,12 +1,12 @@
-import * as React from "react";
-import { useState } from "react";
-import { css, Global } from "@emotion/react";
-import { Helmet } from "react-helmet";
+import * as React from 'react';
+import { useState } from 'react';
+import { css, Global } from '@emotion/react';
+import { Helmet } from 'react-helmet';
 
 // Components
-import Narrative from "../components/Narrative";
-import Visualization from "../components/Visualization";
-import Nav from "../components/Nav";
+import Narrative from '../components/Narrative';
+import Visualization from '../components/Visualization';
+import Nav from '../components/Nav';
 
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
@@ -29,8 +29,9 @@ const IndexPage = () => {
     }
   };
 
+
   const cssVariables = css`
-    @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
     :root {
       --bg: #fff;
       --text-color: #333;
@@ -165,17 +166,17 @@ const IndexPage = () => {
       <Helmet>
         <title>NYC School Budgets</title>
         <link
-          rel="canonical"
-          href="https://www.lester-lee.com/fair-student-funding"
+          rel='canonical'
+          href='https://www.lester-lee.com/fair-student-funding'
         />
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+        <link rel='icon' type='image/png' sizes='32x32' href='favicon.png' />
       </Helmet>
       <Global styles={[cssVariables, styles, keywordStyles]} />
       <main>
         <Narrative onScroll={onArticleScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
-      <Nav activePage={activePage} numPages={numPages}/>
+      <Nav activePage={activePage} numPages={numPages} />
     </>
   );
 };

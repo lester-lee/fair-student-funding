@@ -71,8 +71,17 @@ const NavItem = styled('li')`
   }
 `;
 
-const scrollTo = (id: string) => () => {
-  document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+/**
+ * Scroll to page {i}
+ */
+const onNavItemClick = (i: number) => {
+  const article = document.querySelector('article');
+  if (!article) return;
+  const pageHeight = article.offsetHeight;
+  article.scrollTo({
+    top: pageHeight * i,
+    behavior: 'smooth',
+  });
 };
 
 type Props = {
@@ -86,7 +95,13 @@ const Nav = ({ activePage, numPages }: Props) => {
       <ol>
         {Array.from({ length: numPages }, (_, i) => {
           const status = i > activePage ? 'unread' : 'read';
-          return <NavItem key={i} status={status} />;
+          return (
+            <NavItem
+              key={i}
+              status={status}
+              onClick={() => onNavItemClick(i)}
+            />
+          );
         })}
       </ol>
     </Navbar>
