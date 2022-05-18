@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
+import { read } from 'fs';
 
 const _Navbar = styled('nav')`
   position: fixed;
@@ -32,7 +33,7 @@ const Navbar = styled('nav')`
   z-index: 4;
 
   :hover {
-    height: 2%;
+    height: 3%;
     cursor: pointer;
   }
 
@@ -44,17 +45,29 @@ const Navbar = styled('nav')`
 
     list-style-type: none;
 
-
     display: flex;
     flex-flow: row nowrap;
   }
 `;
 
+type NavItemProps = {
+  status: string;
+};
+
 const NavItem = styled('li')`
   flex: 1;
-  background: var(--scale1);
-  :hover{
-    background: var(--scale2);
+  background: ${(props: NavItemProps) => {
+    if (props.status === 'unread') {
+      return 'var(--scale3)';
+    } else {
+      return 'var(--scale1);';
+    }
+  }};
+
+  transition: background 0.5s;
+
+  :hover {
+    background: var(--accent);
   }
 `;
 
@@ -67,26 +80,14 @@ type Props = {
   numPages: number;
 };
 
-const _Nav = ({ activePage, numPages }: Props) => {
-  return (
-    <Navbar>
-      <NavItem onClick={scrollTo('#about')}>about</NavItem>
-      <NavItem onClick={scrollTo('#title')}>top</NavItem>
-    </Navbar>
-  );
-};
-
 const Nav = ({ activePage, numPages }: Props) => {
   return (
     <Navbar>
       <ol>
-        {Array.from({ length: activePage - 1 }, (_, i) => (
-          <NavItem key={i} />
-        ))}
-        <NavItem key={activePage} />
-        {Array.from({ length: numPages - activePage }, (_, i) => (
-          <NavItem key={activePage + i} />
-        ))}
+        {Array.from({ length: numPages }, (_, i) => {
+          const status = i > activePage ? 'unread' : 'read';
+          return <NavItem key={i} status={status} />;
+        })}
       </ol>
     </Navbar>
   );
