@@ -11,6 +11,7 @@ import Nav from "../components/Nav";
 const IndexPage = () => {
   const [previousPage, setPreviousPage] = useState(0);
   const [activePage, setActivePage] = useState(0);
+  const [numPages, setNumPages] = useState(0);
 
   /**
    * Use scroll position to update activePage
@@ -19,6 +20,8 @@ const IndexPage = () => {
     const article = event.currentTarget;
     const pageHeight = article.offsetHeight;
     const pageIndex = Math.floor((article.scrollTop + 1) / pageHeight);
+
+    setNumPages(Math.floor(article.scrollHeight / pageHeight));
 
     if (pageIndex != activePage) {
       setPreviousPage(activePage);
@@ -172,7 +175,7 @@ const IndexPage = () => {
         <Narrative onScroll={onArticleScroll} />
         <Visualization activePage={activePage} previousPage={previousPage} />
       </main>
-      <Nav />
+      <Nav activePage={activePage} numPages={numPages}/>
     </>
   );
 };
