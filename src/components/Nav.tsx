@@ -33,7 +33,6 @@ const Navbar = styled('nav')`
   z-index: 4;
 
   :hover {
-    height: 3%;
     cursor: pointer;
   }
 
@@ -58,16 +57,16 @@ const NavItem = styled('li')`
   flex: 1;
   background: ${(props: NavItemProps) => {
     if (props.status === 'unread') {
-      return 'var(--scale3)';
+      return 'var(--scale2)';
     } else {
       return 'var(--scale1);';
     }
   }};
 
-  transition: background 0.5s;
+  transition: all 0.5s;
 
   :hover {
-    background: var(--accent);
+    background: var(--scale3);
   }
 `;
 

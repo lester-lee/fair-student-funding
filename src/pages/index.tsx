@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { css, Global } from '@emotion/react';
 import { Helmet } from 'react-helmet';
 
@@ -9,26 +9,36 @@ import Visualization from '../components/Visualization';
 import Nav from '../components/Nav';
 
 const IndexPage = () => {
-  const [previousPage, setPreviousPage] = useState(0);
+  const [prevPage, setPrevPage] = useState(0);
   const [activePage, setActivePage] = useState(0);
+  const [prevScroll, setPrevScroll] = useState(0);
   const [numPages, setNumPages] = useState(0);
+
+  // Calculate and set num pages
+  useEffect(() => {
+    const article = document.querySelector('article');
+    if (!article) return;
+    setNumPages(Math.floor(article.scrollHeight / article.offsetHeight));
+  }, []);
 
   /**
    * Use scroll position to update activePage
    */
   const onArticleScroll = (event: React.UIEvent<HTMLElement>) => {
     const article = event.currentTarget;
+    const scroll = article.scrollTop;
     const pageHeight = article.offsetHeight;
-    const pageIndex = Math.floor((article.scrollTop + 1) / pageHeight);
+    const scrolledUp = scroll > prevScroll ? false : true;
 
-    setNumPages(Math.floor(article.scrollHeight / pageHeight));
+    const pageIndex = scrolledUp
+      ? Math.floor(scroll / pageHeight)
+      : Math.floor(scroll / pageHeight + 0.5);
 
     if (pageIndex != activePage) {
-      setPreviousPage(activePage);
+      setPrevPage(activePage);
       setActivePage(pageIndex);
     }
   };
-
 
   const cssVariables = css`
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
@@ -174,7 +184,7 @@ const IndexPage = () => {
       <Global styles={[cssVariables, styles, keywordStyles]} />
       <main>
         <Narrative onScroll={onArticleScroll} />
-        <Visualization activePage={activePage} previousPage={previousPage} />
+        <Visualization activePage={activePage} previousPage={prevPage} />
       </main>
       <Nav activePage={activePage} numPages={numPages} />
     </>
